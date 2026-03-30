@@ -1,19 +1,25 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Navbar } from "@/components/organisms/Navbar";
+import { Hero } from "@/components/sections/Hero";
+import { SocialProof } from "@/components/sections/SocialProof";
+import { ServicesShowcase } from "@/components/sections/ServicesShowcase";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { CtaBanner } from "@/components/sections/CtaBanner";
+import { Footer } from "@/components/organisms/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-24">
-      <h1 className="text-4xl font-bold tracking-tight">Welcome to CMMTY</h1>
-      <p className="text-muted-foreground max-w-md text-center text-lg">
-        A modern landing page built with Next.js, Tailwind CSS, and Shadcn UI.
-      </p>
-      <div className="flex gap-4">
-        <Button size="lg">Get Started</Button>
-        <Button variant="outline" size="lg" render={<Link href="/about" />}>
-          About
-        </Button>
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <SocialProof />
+        <ServicesShowcase />
+        <HowItWorks />
+        <WhyUs />
+        <CtaBanner />
+      </main>
+      <Footer />
+    </>
   );
 }

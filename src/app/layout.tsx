@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const poppins = Poppins({
+  variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "CMMTY — Landing Page",
-  description: "Welcome to CMMTY",
+  title: "CM Digital — Soluciones de Impresión y Gestión Documental",
+  description:
+    "Distribuidor oficial Ricoh. Servicio de Impresión Gestionada, Solución Paperless y Renta/Venta de Multifuncionales para PYMES en México.",
 };
 
 export default function RootLayout({
@@ -23,8 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.className} ${geistMono.variable} h-full antialiased`}
+      lang="es"
+      className={`${poppins.variable} ${roboto.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
