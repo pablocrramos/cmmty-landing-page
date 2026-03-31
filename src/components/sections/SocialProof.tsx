@@ -1,38 +1,42 @@
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 const clientLogos = [
-  "Cliente 1",
-  "Cliente 2",
-  "Cliente 3",
-  "Cliente 4",
-  "Cliente 5",
+  {
+    key: "innovasport",
+    src: "/logos/clients/inova_logo.svg",
+    alt: "Logo Innovasport",
+  },
+  { key: "magna", src: "/logos/clients/magna.svg", alt: "Logo Magna" },
+  { key: "javer", src: "/logos/clients/javer.svg", alt: "Logo Javer" },
+  { key: "uanl", src: "/logos/clients/uanl.svg", alt: "Logo UANL" },
+  {
+    key: "nuevoleon",
+    src: "/logos/clients/nuevoleon.svg",
+    alt: "Logo Gobierno de Nuevo León",
+  },
+  { key: "acre", src: "/logos/clients/acre.svg", alt: "Logo ACRE" },
 ];
 
 export function SocialProof() {
   return (
-    <section className="border-border bg-accent border-y px-4 py-12 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        {/* Ricoh badge */}
-        <div className="flex justify-center">
-          <div className="border-primary/20 bg-primary/5 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-            <ShieldCheck className="text-primary size-5" />
-            <span className="font-heading text-primary text-sm font-semibold">
-              Distribuidor Oficial Ricoh
-            </span>
-          </div>
-        </div>
-
-        {/* Client logos */}
-        <p className="text-muted-foreground mt-8 text-center text-sm">
-          Empresas que confían en nosotros
+    <section className="border-border border-y bg-white px-4 py-12 lg:px-8">
+      <div className="mx-auto mt-8 max-w-5xl">
+        <p className="text-foreground font-heading text-md text-center font-medium">
+          Confiados por marcas que construyen el futuro
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-          {clientLogos.map((name) => (
+        <div className="border-border mt-8 grid grid-cols-2 border sm:grid-cols-3 lg:grid-cols-6">
+          {clientLogos.map((logo) => (
             <div
-              key={name}
-              className="bg-muted text-muted-foreground flex h-10 w-24 items-center justify-center rounded text-xs"
+              key={logo.key}
+              className="border-border relative h-24 border-r border-b grayscale transition-all duration-300 [&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n)]:border-r sm:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(3n)]:border-r lg:[&:nth-child(6n)]:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 sm:[&:nth-last-child(-n+3)]:border-b-0 lg:[&:nth-last-child(-n+6)]:border-b-0"
             >
-              {name}
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                sizes="100px"
+                className="object-contain p-6"
+              />
             </div>
           ))}
         </div>
