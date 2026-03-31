@@ -12,3 +12,13 @@ export function Logo({ className }: { className?: string }) {
     </div>
   );
 }
+
+export function LogoStandAlone({ className }: { className?: string }) {
+  return (
+    <div className={cn("flex items-center gap-2", className)}>
+      <div className="bg-primary font-heading text-primary-foreground flex size-10 items-center justify-center rounded-lg text-lg font-bold">
+        CM
+      </div>
+    </div>
+  );
+}

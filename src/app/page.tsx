@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <SocialProof />
-        <QuienesSomos />
+        {/* <QuienesSomos /> */}
         <ServicesShowcase />
         <HowItWorks />
         <WhyUs />

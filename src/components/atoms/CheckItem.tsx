@@ -9,8 +9,13 @@ export function CheckItem({
   className?: string;
 }) {
   return (
-    <li className={cn("text-foreground flex items-center gap-3", className)}>
-      <CircleCheck className="text-accent-green size-5 shrink-0" />
+    <li
+      className={cn(
+        "text-foreground flex items-center gap-3 text-sm",
+        className,
+      )}
+    >
+      <CircleCheck className="text-accent-green size-4 shrink-0" />
       <span>{children}</span>
     </li>
   );

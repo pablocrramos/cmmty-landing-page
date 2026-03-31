@@ -46,7 +46,7 @@ export function ServicesShowcase() {
   const activeService = services.find((s) => s.id === activeId) ?? services[0];
 
   return (
-    <section id="servicios" className="bg-accent px-4 py-20 lg:px-8 lg:py-28">
+    <section id="servicios" className="bg-accent px-4 py-20 lg:px-8 lg:py-36">
       <div className="mx-auto max-w-7xl">
         {/* Mobile: tabs */}
         <div className="mb-8 flex gap-2 overflow-x-auto lg:hidden">
@@ -69,7 +69,7 @@ export function ServicesShowcase() {
         {/* Desktop: two-column sticky layout */}
         <div className="flex gap-12 lg:gap-16">
           {/* Left column — sticky */}
-          <div className="hidden w-72 shrink-0 lg:block">
+          <div className="hidden w-96 shrink-0 lg:block">
             <div className="sticky top-24 space-y-8">
               <ServiceNav activeId={activeId} onSelect={handleSelect} />
               <BenefitsCard benefits={activeService.benefits} />
