@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/organisms/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { SocialProof } from "@/components/sections/SocialProof";
+import { QuienesSomos } from "@/components/sections/QuienesSomos";
 import { ServicesShowcase } from "@/components/sections/ServicesShowcase";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyUs } from "@/components/sections/WhyUs";
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <SocialProof />
+        <QuienesSomos />
         <ServicesShowcase />
         <HowItWorks />
         <WhyUs />
