@@ -70,7 +70,7 @@ export function ServicesShowcase() {
         <div className="flex gap-12 lg:gap-16">
           {/* Left column — sticky */}
           <div className="hidden w-96 shrink-0 lg:block">
-            <div className="sticky top-24 space-y-8">
+            <div className="sticky top-40 space-y-8">
               <ServiceNav activeId={activeId} onSelect={handleSelect} />
               <BenefitsCard benefits={activeService.benefits} />
             </div>

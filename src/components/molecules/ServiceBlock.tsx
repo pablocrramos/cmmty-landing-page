@@ -10,7 +10,7 @@ export function ServiceBlock({ service }: { service: Service }) {
             {service.heading}
           </h1>
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-            <p className="text-muted-foreground mt-5 w-[45%] text-lg leading-snug tracking-tighter font-stretch-normal">
+            <p className="text-muted-foreground mt-5 w-[55%] text-lg leading-snug tracking-tighter font-stretch-normal">
               {service.description}
             </p>
             <div className="flex items-end">
@@ -20,7 +20,7 @@ export function ServiceBlock({ service }: { service: Service }) {
         </div>
       </div>
       {/* Image placeholder */}
-      <div className="bg-muted mt-5 aspect-video w-full rounded-xl" />
+      <div className="mt-5 aspect-video w-full rounded-[0.38rem] bg-black/40" />
     </div>
   );
 }

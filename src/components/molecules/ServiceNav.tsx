@@ -17,18 +17,18 @@ export function ServiceNav({
         {services.map((service) => {
           const isActive = service.id === activeId;
           return (
-            <li key={service.id} className="relative flex items-center">
+            <li key={service.id} className="relative flex max-h-8 items-center">
               <button
                 type="button"
                 onClick={() => onSelect(service.id)}
                 className={cn(
-                  "font-heading flex items-center gap-3 rounded-lg py-2 text-left text-lg transition-colors",
+                  "font-heading flex items-center gap-3 rounded-lg py-2 text-left text-xl transition-colors",
                   isActive
                     ? "text-foreground font-bold"
                     : "text-muted-foreground/50 hover:text-muted-foreground font-medium",
                 )}
               >
-                {isActive && <LogoStandAlone className="scale-75 pr-2" />}
+                {isActive && <LogoStandAlone className="scale-65 pr-2" />}
                 {!isActive && <span>{service.label}</span>}
               </button>
               {isActive && (
