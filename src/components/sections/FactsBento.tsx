@@ -61,7 +61,7 @@ const items: BentoItem[] = [
 ];
 
 function Card({ item }: { item: BentoItem }) {
-  const base = `flex min-h-44 flex-col rounded-2xl bg-card p-7 ${item.grid}`;
+  const base = `flex min-h-44 flex-col rounded-[0.38rem] bg-card p-7 ${item.grid}`;
 
   if (item.kind === "stat") {
     return (
