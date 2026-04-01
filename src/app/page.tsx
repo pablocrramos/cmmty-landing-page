@@ -20,7 +20,7 @@ export default function Home() {
         <ServicesShowcase />
         <FactsBento />
         <HowItWorks />
-        <WhyUs />
+        {/* <WhyUs /> */}
         <CtaBanner />
       </main>
       <Footer />
