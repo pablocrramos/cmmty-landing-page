@@ -13,11 +13,13 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn(centered && "text-center", className)}>
-      <h2>{title}</h2>
+      <h2 className="font-heading text-4xl font-normal tracking-tighter md:text-[2.5rem]">
+        {title}
+      </h2>
       {subtitle && (
         <p
           className={cn(
-            "text-muted-foreground mt-4 max-w-2xl",
+            "text-muted-foreground mt-6 w-[45%] text-lg leading-snug tracking-tighter font-stretch-normal",
             centered && "mx-auto",
           )}
         >
