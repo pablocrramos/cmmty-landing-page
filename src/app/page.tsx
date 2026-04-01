@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { SocialProof } from "@/components/sections/SocialProof";
 import { QuienesSomos } from "@/components/sections/QuienesSomos";
 import { ServicesShowcase } from "@/components/sections/ServicesShowcase";
+import { FactsBento } from "@/components/sections/FactsBento";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
@@ -17,6 +18,7 @@ export default function Home() {
         <SocialProof />
         {/* <QuienesSomos /> */}
         <ServicesShowcase />
+        <FactsBento />
         <HowItWorks />
         <WhyUs />
         <CtaBanner />
