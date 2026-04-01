@@ -20,7 +20,7 @@ export const services: Service[] = [
       "Monitoreo remoto en tiempo real",
       "Soporte técnico sin costo adicional",
     ],
-    ctaLabel: "Conoce el servicio",
+    ctaLabel: "Explora MPS",
   },
   {
     id: "paperless",
@@ -34,7 +34,7 @@ export const services: Service[] = [
       "Acceso remoto seguro",
       "Trazabilidad completa de documentos",
     ],
-    ctaLabel: "Conoce la solución",
+    ctaLabel: "Explora Paperless",
   },
   {
     id: "multifuncionales",
@@ -48,6 +48,6 @@ export const services: Service[] = [
       "Instalación y configuración incluida",
       "Soporte técnico garantizado",
     ],
-    ctaLabel: "Ver equipos disponibles",
+    ctaLabel: "Explora Equipos",
   },
 ];

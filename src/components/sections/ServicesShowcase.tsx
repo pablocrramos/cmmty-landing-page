@@ -47,7 +47,7 @@ export function ServicesShowcase() {
 
   return (
     <section id="servicios" className="bg-accent px-4 py-20 lg:px-8 lg:py-36">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Mobile: tabs */}
         <div className="mb-8 flex gap-2 overflow-x-auto lg:hidden">
           {services.map((service) => (

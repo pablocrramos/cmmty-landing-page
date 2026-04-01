@@ -22,13 +22,13 @@ export function ServiceNav({
                 type="button"
                 onClick={() => onSelect(service.id)}
                 className={cn(
-                  "font-heading flex items-center gap-3 rounded-lg px-3 py-2 text-left text-lg transition-colors",
+                  "font-heading flex items-center gap-3 rounded-lg py-2 text-left text-lg transition-colors",
                   isActive
                     ? "text-foreground font-bold"
                     : "text-muted-foreground/50 hover:text-muted-foreground font-medium",
                 )}
               >
-                {isActive && <LogoStandAlone className="scale-75" />}
+                {isActive && <LogoStandAlone className="scale-75 pr-2" />}
                 {!isActive && <span>{service.label}</span>}
               </button>
               {isActive && (
