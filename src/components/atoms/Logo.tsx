@@ -1,24 +1,44 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export function Logo({ className }: { className?: string }) {
+type LogoVariant = "light-bg" | "dark-bg";
+
+interface LogoProps {
+  className?: string;
+  variant?: LogoVariant;
+}
+
+export function Logo({ className, variant = "light-bg" }: LogoProps) {
+  const src =
+    variant === "dark-bg"
+      ? "/assets/svgs/logos/brand/cm-logo-dark.svg"
+      : "/assets/svgs/logos/brand/cm-logo-third.svg";
+
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      <div className="bg-primary font-heading text-primary-foreground flex size-10 items-center justify-center rounded-lg text-lg font-bold">
-        CM
-      </div>
-      <span className="font-heading text-foreground text-xl font-bold tracking-tight">
-        CM Digital
-      </span>
-    </div>
+    <Image
+      src={src}
+      alt="CM Digital"
+      width={199}
+      height={53}
+      className={cn("h-8 w-auto", className)}
+      priority
+    />
   );
 }
 
-export function LogoStandAlone({ className }: { className?: string }) {
+export function LogoStandAlone({ className, variant = "light-bg" }: LogoProps) {
+  const src =
+    variant === "dark-bg"
+      ? "/assets/svgs/logos/brand/cm-dark.svg"
+      : "/assets/svgs/logos/brand/cm-third.svg";
+
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      <div className="bg-primary font-heading text-primary-foreground flex size-10 items-center justify-center rounded-lg text-lg font-bold">
-        CM
-      </div>
-    </div>
+    <Image
+      src={src}
+      alt="CM Digital"
+      width={69}
+      height={60}
+      className={cn("h-5 w-auto", className)}
+    />
   );
 }

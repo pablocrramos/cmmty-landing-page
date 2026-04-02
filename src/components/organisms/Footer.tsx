@@ -33,7 +33,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12">
           {/* Brand column - Se mantiene a la izquierda */}
           <div className="lg:max-w-2/3">
-            <Logo className="[&_div]:bg-primary-foreground [&_div]:text-foreground [&_span]:text-primary-foreground" />
+            <Logo variant="dark-bg" className="h-9" />
             <p className="text-primary-foreground/60 mt-4 text-lg leading-snug tracking-tight md:text-4xl">
               Tus documentos sin friccion.
             </p>
@@ -116,7 +116,7 @@ export function Footer() {
 //         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
 //           {/* Brand column */}
 //           <div className="lg:col-span-2">
-//             <Logo className="[&_div]:bg-primary-foreground [&_div]:text-foreground [&_span]:text-primary-foreground" />
+//             <Logo variant="dark-bg" className="h-9" />
 //             <p className="text-primary-foreground/60 mt-4 max-w-md text-lg leading-snug tracking-tight">
 //               Tu aliado tecnológico en impresión y gestión documental.
 //               Distribuidor oficial Ricoh.
