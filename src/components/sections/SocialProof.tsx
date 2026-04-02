@@ -3,18 +3,26 @@ import Image from "next/image";
 const clientLogos = [
   {
     key: "innovasport",
-    src: "/logos/clients/inova_logo.svg",
+    src: "/assets/svgs/logos/clients/inova_logo.svg",
     alt: "Logo Innovasport",
   },
-  { key: "magna", src: "/logos/clients/magna.svg", alt: "Logo Magna" },
-  { key: "javer", src: "/logos/clients/javer.svg", alt: "Logo Javer" },
-  { key: "uanl", src: "/logos/clients/uanl.svg", alt: "Logo UANL" },
+  {
+    key: "magna",
+    src: "/assets/svgs/logos/clients/magna.svg",
+    alt: "Logo Magna",
+  },
+  {
+    key: "javer",
+    src: "/assets/svgs/logos/clients/javer.svg",
+    alt: "Logo Javer",
+  },
+  { key: "uanl", src: "/assets/svgs/logos/clients/uanl.svg", alt: "Logo UANL" },
   {
     key: "nuevoleon",
-    src: "/logos/clients/nuevoleon.svg",
+    src: "assets/svgs/logos/clients/nuevoleon.svg",
     alt: "Logo Gobierno de Nuevo León",
   },
-  { key: "acre", src: "/logos/clients/acre.svg", alt: "Logo ACRE" },
+  { key: "acre", src: "/assets/svgs/logos/clients/acre.svg", alt: "Logo ACRE" },
 ];
 
 export function SocialProof() {
