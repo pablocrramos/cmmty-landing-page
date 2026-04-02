@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { Logo } from "@/components/atoms/Logo";
@@ -15,12 +15,36 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const isAtTop = currentY < 10;
+      const isScrollingUp = currentY < lastScrollY.current;
+
+      setAtTop(isAtTop);
+      setVisible(isAtTop || isScrollingUp);
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="border-border bg-background/95 sticky top-0 z-50 border-b backdrop-blur-sm">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        visible ? "translate-y-0" : "-translate-y-full",
+        atTop ? "bg-transparent" : "bg-white shadow-sm",
+      )}
+    >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
         <Link href="/" aria-label="CM Digital inicio">
-          <Logo />
+          <Logo variant={atTop ? "dark-bg" : "light-bg"} />
         </Link>
 
         {/* Desktop nav */}
@@ -29,7 +53,12 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground font-sans text-sm font-medium transition-colors"
+                className={cn(
+                  "font-sans text-sm font-medium transition-colors",
+                  atTop
+                    ? "text-white/90 hover:text-white"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
               >
                 {link.label}
               </a>
@@ -51,9 +80,13 @@ export function Navbar() {
           aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
         >
           {mobileOpen ? (
-            <XIcon className="size-6" />
+            <XIcon
+              className={cn("size-6", atTop ? "text-white" : "text-foreground")}
+            />
           ) : (
-            <ListIcon className="size-6" />
+            <ListIcon
+              className={cn("size-6", atTop ? "text-white" : "text-foreground")}
+            />
           )}
         </button>
       </nav>
@@ -61,8 +94,11 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "border-border overflow-hidden border-t transition-all duration-300 md:hidden",
-          mobileOpen ? "max-h-64" : "max-h-0 border-t-0",
+          "overflow-hidden transition-all duration-300 md:hidden",
+          mobileOpen ? "max-h-64 border-t" : "max-h-0",
+          atTop
+            ? "border-white/20 bg-black/40 backdrop-blur-sm"
+            : "border-border bg-white",
         )}
       >
         <ul className="flex flex-col gap-4 px-4 py-6">
@@ -70,7 +106,10 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-foreground font-sans text-base font-medium"
+                className={cn(
+                  "font-sans text-base font-medium",
+                  atTop ? "text-white" : "text-foreground",
+                )}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
