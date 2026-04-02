@@ -43,31 +43,35 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
-        <Link href="/" aria-label="CM Digital inicio">
-          <Logo variant={atTop ? "dark-bg" : "light-bg"} />
-        </Link>
-
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={cn(
-                  "font-sans text-sm font-medium transition-colors",
-                  atTop
-                    ? "text-white/90 hover:text-white"
-                    : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-6">
+          <Link href="/" aria-label="CM Digital inicio">
+            <Logo variant={atTop ? "dark-bg" : "light-bg"} className="h-7" />
+          </Link>
+          <ul className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={cn(
+                    "font-heading text-[1rem] font-normal tracking-tight transition-colors",
+                    atTop
+                      ? "text-white/90 hover:text-white"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="hidden md:block">
-          <Button size="sm" render={<a href="#contacto" />}>
+          <Button
+            size="sm"
+            className={"font-normal"}
+            render={<a href="#contacto" />}
+          >
             Cotiza ahora
           </Button>
         </div>

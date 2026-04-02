@@ -11,10 +11,10 @@ export function Hero() {
         className="scale-110 object-cover object-center"
         priority
       />
-      <div className="absolute inset-0 bg-red-950/45" />
+      <div className="absolute inset-0 bg-red-950/25" />
       <div className="relative mx-auto max-w-7xl">
         <div className="font-heading mx-auto max-w-3xl text-center">
-          <h1 className="leading-tighter text-3xl font-medium tracking-tighter text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+          <h1 className="leading-tighter text-3xl font-medium tracking-tighter text-white sm:text-4xl lg:text-5xl">
             Optimizacion, <br /> en cada impresion de tu negocio
           </h1>
           <p className="mt-6 text-base text-white/85 sm:text-lg lg:text-xl">
