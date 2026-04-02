@@ -1,111 +1,72 @@
-type BentoItem =
-  | {
-      kind: "stat";
-      id: string;
-      stat: string;
-      description: string;
-      grid: string;
-    }
-  | { kind: "text"; id: string; headline: string; grid: string }
-  | {
-      kind: "brand";
-      id: string;
-      headline: string;
-      brand: string;
-      grid: string;
-    };
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-const items: BentoItem[] = [
-  {
-    kind: "stat",
-    id: "years",
-    stat: "25 años",
-    description: "Creciendo en la industria de impresión.",
-    grid: "lg:col-start-1 lg:row-start-1 lg:row-span-2",
-  },
-  {
-    kind: "text",
-    id: "solutions",
-    headline: "Soluciones que jalan en cualquier industria",
-    grid: "lg:col-start-2 lg:row-start-1 lg:row-span-3",
-  },
-  {
-    kind: "stat",
-    id: "top10",
-    stat: "Top 10",
-    description: "Mayor rendimiento por Ricoh en 2009.",
-    grid: "lg:col-start-3 lg:row-start-1 lg:row-span-2",
-  },
-  {
-    kind: "brand",
-    id: "team",
-    headline:
-      "Colaboradores que sustentan nuestro trabajo y transmiten confianza",
-    brand: "RICOH",
-    grid: "lg:col-start-1 lg:row-start-3 lg:row-span-2",
-  },
-  {
-    kind: "stat",
-    id: "equipment",
-    stat: "9000+",
-    description: "Equipos instalados en todo México.",
-    grid: "lg:col-start-2 lg:row-start-4 lg:row-span-1",
-  },
-  {
-    kind: "text",
-    id: "simplify",
-    headline:
-      "Simplificamos tus espacios, así tú solo te preocupas por lo importante",
-    grid: "lg:col-start-3 lg:row-start-3 lg:row-span-2",
-  },
+const stats = [
+  { value: "25 años", description: "Creciendo en la industria de impresión." },
+  { value: "9,000+", description: "Equipos instalados en todo México." },
+  { value: "Top 10", description: "Mayor rendimiento por Ricoh en 2009." },
 ];
 
-function Card({ item }: { item: BentoItem }) {
-  const base = `flex min-h-44 flex-col rounded-[0.38rem] bg-card p-7 ${item.grid}`;
-
-  if (item.kind === "stat") {
-    return (
-      <div className={`${base} justify-between`}>
-        <span className="font-heading text-foreground text-4xl leading-none font-bold lg:text-5xl">
-          {item.stat}
-        </span>
-        <p className="text-muted-foreground text-sm">{item.description}</p>
-      </div>
-    );
-  }
-
-  if (item.kind === "brand") {
-    return (
-      <div className={`${base} justify-between`}>
-        <p className="text-foreground text-base leading-snug font-medium">
-          {item.headline}
-        </p>
-        <span className="font-heading text-foreground text-xl font-black tracking-[0.18em]">
-          {item.brand}
-        </span>
-      </div>
-    );
-  }
-
-  // kind === "text"
-  const isSimplify = item.id === "simplify";
-  return (
-    <div className={`${base} ${isSimplify ? "justify-end" : "justify-start"}`}>
-      <p className="text-foreground text-base leading-snug font-medium">
-        {item.headline}
-      </p>
-    </div>
-  );
-}
+const partnerLogos = [
+  { src: "/assets/svgs/logos/aliados/ricoh.svg", alt: "Ricoh" },
+  { src: "/assets/svgs/logos/aliados/zebra.svg", alt: "Zebra" },
+  { src: "/assets/svgs/logos/aliados/lenovo.svg", alt: "Lenovo" },
+  { src: "/assets/svgs/logos/aliados/sharp.svg", alt: "Sharp" },
+];
 
 export function FactsBento() {
   return (
     <section className="bg-accent px-4 pb-20 lg:px-8 lg:pb-36">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[repeat(4,minmax(10rem,1fr))]">
-          {items.map((item) => (
-            <Card key={item.id} item={item} />
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Row 1 — stat cards */}
+          {stats.map((stat, i) => (
+            <div
+              key={stat.value}
+              className={cn(
+                "bg-card flex min-h-44 flex-col justify-between rounded-[0.38rem] p-7",
+                i === 2 && "sm:col-span-2 lg:col-span-1",
+              )}
+            >
+              <span className="font-heading text-4xl leading-none font-bold lg:text-5xl">
+                {stat.value}
+              </span>
+              <p className="text-muted-foreground text-sm">
+                {stat.description}
+              </p>
+            </div>
           ))}
+
+          {/* Row 2 — wide card: aliados */}
+          <div className="bg-card flex flex-col justify-between rounded-[0.38rem] p-7 sm:col-span-2 lg:col-span-2">
+            <p className="max-w-lg text-base leading-snug font-medium">
+              Contamos con los mejores aliados tecnológicos en la industria.
+            </p>
+            <div className="mt-8 grid grid-cols-4 gap-3">
+              {partnerLogos.map((logo) => (
+                <div
+                  key={logo.alt}
+                  className="border-border flex items-center justify-center rounded-lg border bg-white p-4"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={80}
+                    height={32}
+                    className="h-7 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — narrow card: value prop */}
+          <div className="bg-card flex min-h-44 flex-col rounded-[0.38rem] p-7 sm:col-span-2 lg:col-span-1">
+            <p className="text-base leading-snug font-medium">
+              Simplificamos tus espacios, así tú solo te preocupas por lo
+              importante.
+            </p>
+          </div>
         </div>
       </div>
     </section>

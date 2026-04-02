@@ -1,74 +1,81 @@
-import {
-  ShieldCheckIcon,
-  ClockIcon,
-  MapPinIcon,
-  WrenchIcon,
-} from "@phosphor-icons/react";
+import Image from "next/image";
 import { SectionHeading } from "@/components/atoms/SectionHeading";
-import { StatCard } from "@/components/molecules/StatCard";
-
-const differentiators = [
-  {
-    icon: ShieldCheckIcon,
-    title: "Distribuidor Oficial Ricoh",
-    description:
-      "Acceso directo a equipos, refacciones y soporte de fábrica. Sin intermediarios.",
-  },
-  {
-    icon: ClockIcon,
-    title: "Soporte 7 días",
-    description:
-      "Atención técnica disponible toda la semana para que tu operación nunca se detenga.",
-  },
-  {
-    icon: MapPinIcon,
-    title: "Cobertura nacional",
-    description:
-      "Presencia en las principales ciudades de México con tiempos de respuesta garantizados.",
-  },
-  {
-    icon: WrenchIcon,
-    title: "Servicio integral",
-    description:
-      "Desde el diagnóstico hasta el soporte continuo, todo en un solo proveedor.",
-  },
-];
+import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: "+200", label: "Empresas atendidas" },
-  { value: "40%", label: "Ahorro promedio en impresión" },
-  { value: "+500", label: "Equipos gestionados" },
-  { value: "24h", label: "Tiempo de respuesta" },
+  { value: "25 años", description: "Creciendo en la industria de impresión." },
+  { value: "9,000+", description: "Equipos instalados en todo México." },
+  { value: "Top 10", description: "Mayor rendimiento por Ricoh en 2009." },
+];
+
+const partnerLogos = [
+  { src: "/assets/svgs/logos/aliados/ricoh.svg", alt: "Ricoh" },
+  { src: "/assets/svgs/logos/aliados/zebra.svg", alt: "Zebra" },
+  { src: "/assets/svgs/logos/aliados/lenovo.svg", alt: "Lenovo" },
+  { src: "/assets/svgs/logos/aliados/sharp.svg", alt: "Sharp" },
 ];
 
 export function WhyUs() {
   return (
-    <section id="nosotros" className="px-4 py-20 lg:px-8 lg:py-28">
+    <section
+      id="nosotros"
+      className="bg-neutral-100 px-4 py-20 lg:px-8 lg:py-28"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="¿Por qué elegirnos?"
           subtitle="Combinamos tecnología Ricoh con un servicio cercano y personalizado para PYMES."
         />
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {differentiators.map((item) => (
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Row 1 — stat cards */}
+          {stats.map((stat, i) => (
             <div
-              key={item.title}
-              className="border-border rounded-xl border p-6"
+              key={stat.value}
+              className={cn(
+                "border-border flex min-h-48 flex-col justify-between rounded-2xl border bg-white p-8",
+                i === 2 && "sm:col-span-2 lg:col-span-1",
+              )}
             >
-              <item.icon className="text-primary size-8" />
-              <h4 className="mt-4">{item.title}</h4>
-              <p className="text-muted-foreground mt-2 text-sm">
-                {item.description}
+              <p className="text-5xl font-medium tracking-tight">
+                {stat.value}
+              </p>
+              <p className="text-muted-foreground mt-6 text-base leading-snug">
+                {stat.description}
               </p>
             </div>
           ))}
-        </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <StatCard key={stat.label} value={stat.value} label={stat.label} />
-          ))}
+          {/* Row 2 — wide card: aliados */}
+          <div className="border-border flex flex-col justify-between rounded-2xl border bg-white p-8 sm:col-span-2 lg:col-span-2">
+            <p className="max-w-lg text-base leading-snug font-medium">
+              Contamos con los mejores aliados tecnológicos en la industria.
+            </p>
+            <div className="mt-8 grid grid-cols-4 gap-3">
+              {partnerLogos.map((logo) => (
+                <div
+                  key={logo.alt}
+                  className="border-border flex items-center justify-center rounded-xl border p-4"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={80}
+                    height={32}
+                    className="h-8 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — narrow card: value prop */}
+          <div className="border-border flex min-h-48 flex-col rounded-2xl border bg-white p-8 sm:col-span-2 lg:col-span-1">
+            <p className="text-base leading-snug font-medium">
+              Simplificamos tus espacios, así tú solo te preocupas por lo
+              importante.
+            </p>
+          </div>
         </div>
       </div>
     </section>
