@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="relative flex h-svh flex-col items-center justify-center overflow-hidden px-4 py-12 lg:px-8">
+    <section className="relative flex h-svh flex-col items-center overflow-hidden px-4 pt-28 pb-12 lg:px-8 lg:pt-32">
       <Image
         src="/assets/imgs/hero-cm.png"
         alt=""
