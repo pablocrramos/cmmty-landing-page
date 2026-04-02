@@ -34,20 +34,20 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="bg-foreground px-8 py-28 lg:px-16 lg:py-32">
+    <section className="bg-white px-8 py-28 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Así de fácil es trabajar con nosotros"
           subtitle="En 4 simples pasos transformamos tu operación de impresión y gestión documental."
-          className="[&_h2]:text-primary-foreground [&_p]:text-primary-foreground/60"
+          className="[&_p]:text-muted-foreground [&_h2]:text-black"
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <div key={step.number} className="relative">
               <div className="mt-4">
-                <step.icon className="text-muted-foreground t size-8" />
-                <h4 className="text-primary-foreground mt-4 text-lg font-normal">
+                <step.icon className="text-primary t size-8" />
+                <h4 className="mt-4 text-lg font-normal text-black">
                   {step.title}
                 </h4>
                 <p className="text-muted-foreground mt-6 text-lg leading-snug tracking-tighter font-stretch-normal">
