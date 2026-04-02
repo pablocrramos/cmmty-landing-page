@@ -28,7 +28,7 @@ const clientLogos = [
 export function SocialProof() {
   return (
     <section className="bg-white px-4 py-12 pb-14 lg:px-8 lg:pb-16">
-      <div className="mx-auto mt-8 max-w-5xl">
+      <div className="mx-auto max-w-5xl">
         <p className="text-foreground text-md text-center font-normal tracking-tight">
           Confiados por empresas que construyen el futuro
         </p>

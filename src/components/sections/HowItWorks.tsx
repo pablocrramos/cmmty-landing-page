@@ -1,31 +1,37 @@
-import { Search, FileText, Settings, Headphones } from "lucide-react";
+"use client";
+import {
+  MagnifyingGlassIcon,
+  FileTextIcon,
+  GearSixIcon,
+  HeadsetIcon,
+} from "@phosphor-icons/react";
 import { SectionHeading } from "@/components/atoms/SectionHeading";
 
 const steps = [
   {
     number: "1",
-    icon: Search,
+    icon: MagnifyingGlassIcon,
     title: "Diagnóstico gratuito",
     description:
       "Analizamos tu operación actual de impresión y gestión documental para identificar oportunidades de mejora.",
   },
   {
     number: "2",
-    icon: FileText,
+    icon: FileTextIcon,
     title: "Propuesta personalizada",
     description:
       "Diseñamos una solución a la medida de tu empresa con opciones claras de implementación y costos.",
   },
   {
     number: "3",
-    icon: Settings,
+    icon: GearSixIcon,
     title: "Implementación",
     description:
       "Instalamos, configuramos y ponemos en marcha la solución sin interrumpir tu operación diaria.",
   },
   {
     number: "4",
-    icon: Headphones,
+    icon: HeadsetIcon,
     title: "Soporte continuo",
     description:
       "Monitoreo proactivo, mantenimiento y soporte técnico permanente para que nunca te preocupes.",

@@ -1,4 +1,4 @@
-import { CircleCheck } from "lucide-react";
+import { CheckFatIcon } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
 export function CheckItem({
@@ -15,7 +15,10 @@ export function CheckItem({
         className,
       )}
     >
-      <CircleCheck className="text-accent-green size-4 shrink-0" />
+      <CheckFatIcon
+        className="text-accent-green size-4 shrink-0"
+        weight="fill"
+      />
       <span>{children}</span>
     </li>
   );

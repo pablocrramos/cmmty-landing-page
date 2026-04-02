@@ -1,28 +1,33 @@
-import { ShieldCheck, Clock, MapPin, Wrench } from "lucide-react";
+import {
+  ShieldCheckIcon,
+  ClockIcon,
+  MapPinIcon,
+  WrenchIcon,
+} from "@phosphor-icons/react";
 import { SectionHeading } from "@/components/atoms/SectionHeading";
 import { StatCard } from "@/components/molecules/StatCard";
 
 const differentiators = [
   {
-    icon: ShieldCheck,
+    icon: ShieldCheckIcon,
     title: "Distribuidor Oficial Ricoh",
     description:
       "Acceso directo a equipos, refacciones y soporte de fábrica. Sin intermediarios.",
   },
   {
-    icon: Clock,
+    icon: ClockIcon,
     title: "Soporte 7 días",
     description:
       "Atención técnica disponible toda la semana para que tu operación nunca se detenga.",
   },
   {
-    icon: MapPin,
+    icon: MapPinIcon,
     title: "Cobertura nacional",
     description:
       "Presencia en las principales ciudades de México con tiempos de respuesta garantizados.",
   },
   {
-    icon: Wrench,
+    icon: WrenchIcon,
     title: "Servicio integral",
     description:
       "Desde el diagnóstico hasta el soporte continuo, todo en un solo proveedor.",
