@@ -12,7 +12,7 @@ export function Logo({ className, variant = "light-bg" }: LogoProps) {
   const src =
     variant === "dark-bg"
       ? "/assets/svgs/logos/brand/cm-logo-dark.svg"
-      : "/assets/svgs/logos/brand/cm-logo-third.svg";
+      : "/assets/svgs/logos/brand/cm-logo-light.svg";
 
   return (
     <Image

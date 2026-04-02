@@ -28,7 +28,7 @@ export function ServiceNav({
                     : "text-muted-foreground/50 hover:text-muted-foreground font-medium",
                 )}
               >
-                {isActive && <LogoStandAlone className="scale-65 pr-2" />}
+                {isActive && <LogoStandAlone className="scale-125 pr-2" />}
                 {!isActive && <span>{service.label}</span>}
               </button>
               {isActive && (
