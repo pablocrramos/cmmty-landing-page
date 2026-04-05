@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Section } from "@/components/atoms/Section";
 
 const stats = [
   { value: "25 años", description: "Creciendo en la industria de impresión." },
@@ -16,59 +17,55 @@ const partnerLogos = [
 
 export function FactsBento() {
   return (
-    <section className="bg-accent px-4 pb-20 lg:px-8 lg:pb-36">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Row 1 — stat cards */}
-          {stats.map((stat, i) => (
-            <div
-              key={stat.value}
-              className={cn(
-                "bg-card flex min-h-44 flex-col justify-between rounded-[0.38rem] p-7",
-                i === 2 && "sm:col-span-2 lg:col-span-1",
-              )}
-            >
-              <span className="font-heading text-4xl leading-none font-bold lg:text-5xl">
-                {stat.value}
-              </span>
-              <p className="text-muted-foreground text-sm">
-                {stat.description}
-              </p>
-            </div>
-          ))}
-
-          {/* Row 2 — wide card: aliados */}
-          <div className="bg-card flex flex-col justify-between rounded-[0.38rem] p-7 sm:col-span-2 lg:col-span-2">
-            <p className="max-w-lg text-base leading-snug font-medium">
-              Contamos con los mejores aliados tecnológicos en la industria.
-            </p>
-            <div className="mt-8 grid grid-cols-4 gap-3">
-              {partnerLogos.map((logo) => (
-                <div
-                  key={logo.alt}
-                  className="border-border flex items-center justify-center rounded-lg border bg-white p-4"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={80}
-                    height={32}
-                    className="h-7 w-auto object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+    <Section variant="light-gray" className="pb-20 lg:pb-36">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Row 1 — stat cards */}
+        {stats.map((stat, i) => (
+          <div
+            key={stat.value}
+            className={cn(
+              "bg-card flex min-h-44 flex-col justify-between rounded-[0.38rem] p-7",
+              i === 2 && "sm:col-span-2 lg:col-span-1",
+            )}
+          >
+            <span className="font-heading text-4xl leading-none font-bold lg:text-5xl">
+              {stat.value}
+            </span>
+            <p className="text-muted-foreground text-sm">{stat.description}</p>
           </div>
+        ))}
 
-          {/* Row 2 — narrow card: value prop */}
-          <div className="bg-card flex min-h-44 flex-col rounded-[0.38rem] p-7 sm:col-span-2 lg:col-span-1">
-            <p className="text-base leading-snug font-medium">
-              Simplificamos tus espacios, así tú solo te preocupas por lo
-              importante.
-            </p>
+        {/* Row 2 — wide card: aliados */}
+        <div className="bg-card flex flex-col justify-between rounded-[0.38rem] p-7 sm:col-span-2 lg:col-span-2">
+          <p className="max-w-lg text-base leading-snug font-medium">
+            Contamos con los mejores aliados tecnológicos en la industria.
+          </p>
+          <div className="mt-8 grid grid-cols-4 gap-3">
+            {partnerLogos.map((logo) => (
+              <div
+                key={logo.alt}
+                className="border-border flex items-center justify-center rounded-lg border bg-white p-4"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={80}
+                  height={32}
+                  className="h-7 w-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Row 2 — narrow card: value prop */}
+        <div className="bg-card flex min-h-44 flex-col rounded-[0.38rem] p-7 sm:col-span-2 lg:col-span-1">
+          <p className="text-base leading-snug font-medium">
+            Simplificamos tus espacios, así tú solo te preocupas por lo
+            importante.
+          </p>
+        </div>
       </div>
-    </section>
+    </Section>
   );
 }
