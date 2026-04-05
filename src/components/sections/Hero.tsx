@@ -11,7 +11,7 @@ export function Hero() {
         className="scale-110 object-cover object-center"
         priority
       />
-      <div className="absolute inset-0 bg-red-950/25" />
+      <div className="absolute inset-0 bg-red-100/20" />
       <div className="relative mx-auto max-w-7xl">
         <div className="font-heading mx-auto max-w-3xl text-center">
           <h1 className="leading-tighter text-3xl font-medium tracking-tighter text-white sm:text-4xl lg:text-5xl">
