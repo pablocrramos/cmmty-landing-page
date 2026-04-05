@@ -119,6 +119,9 @@
   /* Border radius base — 8.4px */
   --radius: 0.525rem;
 
+  /* Section surface — light-gray variant */
+  --surface: #fbfbfb;
+
   /* Chart colors */
   --chart-1: #c01826;
   --chart-2: #00823e;
