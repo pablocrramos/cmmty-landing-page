@@ -1,42 +1,29 @@
-"use client";
 import {
   MagnifyingGlassIcon,
   FileTextIcon,
-  GearSixIcon,
   HeadsetIcon,
-} from "@phosphor-icons/react";
-import { SectionHeading } from "@/components/atoms/SectionHeading";
+} from "@phosphor-icons/react/dist/ssr";
 import { Section } from "@/components/atoms/Section";
 import { Container } from "../atoms/Container";
 
 const steps = [
   {
-    number: "1",
     icon: MagnifyingGlassIcon,
-    title: "Diagnóstico gratuito",
+    title: "Diagnóstico gratuito.",
     description:
       "Analizamos tu operación actual de impresión y gestión documental para identificar oportunidades de mejora.",
   },
   {
-    number: "2",
     icon: FileTextIcon,
-    title: "Propuesta personalizada",
+    title: "Propuesta personalizada.",
     description:
       "Diseñamos una solución a la medida de tu empresa con opciones claras de implementación y costos.",
   },
   {
-    number: "3",
-    icon: GearSixIcon,
-    title: "Implementación",
-    description:
-      "Instalamos, configuramos y ponemos en marcha la solución sin interrumpir tu operación diaria.",
-  },
-  {
-    number: "4",
     icon: HeadsetIcon,
-    title: "Soporte continuo",
+    title: "Implementación y soporte continuo.",
     description:
-      "Monitoreo proactivo, mantenimiento y soporte técnico permanente para que nunca te preocupes.",
+      "Instalamos y configuramos la solución sin interrumpir tu operación, con monitoreo proactivo y soporte técnico permanente.",
   },
 ];
 
@@ -44,24 +31,22 @@ export function HowItWorks() {
   return (
     <Section variant="white">
       <Container>
-        <SectionHeading
-          title="Así de fácil es trabajar con nosotros"
-          subtitle="En 4 simples pasos transformamos tu operación de impresión y gestión documental."
-          className="[&_p]:text-muted-foreground [&_h2]:text-black"
-        />
+        <h2 className="font-heading max-w-sm text-4xl font-normal tracking-tighter md:text-[2.5rem]">
+          Así de fácil es trabajar con nosotros
+        </h2>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-10 sm:grid-cols-3">
           {steps.map((step) => (
-            <div key={step.number} className="relative">
-              <div className="mt-4">
-                <step.icon className="text-primary t size-8" />
-                <h4 className="mt-4 text-lg font-normal text-black">
-                  {step.title}
-                </h4>
-                <p className="text-muted-foreground mt-6 text-lg leading-snug tracking-tighter font-stretch-normal">
-                  {step.description}
-                </p>
+            <div key={step.title} className="flex flex-col gap-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-[0.38rem] border border-[#dde2e5]">
+                <step.icon className="text-primary size-5" />
               </div>
+              <p className="text-base leading-relaxed">
+                <strong className="font-semibold">{step.title}</strong>{" "}
+                <span className="text-muted-foreground">
+                  {step.description}
+                </span>
+              </p>
             </div>
           ))}
         </div>
