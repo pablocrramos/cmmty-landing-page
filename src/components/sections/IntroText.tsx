@@ -5,9 +5,11 @@ export function IntroText() {
   return (
     <Section variant="white">
       <TextBlock className="py-16">
-        Tu operación de impresión, resuelta por completo. Equipa tu negocio con
-        servicios gestionados de impresión, digitalización y soporte técnico que
-        se adaptan a lo que necesitas.
+        Tu operación de impresión, resuelta por completo.
+        <p className="text-muted-foreground/70">
+          Equipa tu negocio con servicios gestionados de impresión,
+          digitalización y soporte técnico que se adaptan a lo que necesitas.
+        </p>
       </TextBlock>
     </Section>
   );
