@@ -1,104 +1,109 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/atoms/Section";
+import { Container } from "../atoms/Container";
 import { services } from "@/lib/services-data";
 
-// px of scrolling dedicated to each service before transitioning to the next
-const SCROLL_PER_SERVICE = 650;
+const GAP = 16; // px — matches gap-4
 
 export function ServicesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [cardWidth, setCardWidth] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const top =
-        containerRef.current.getBoundingClientRect().top + window.scrollY;
-      const scrolled = window.scrollY - top;
-      const index = Math.min(
-        Math.max(0, Math.floor(scrolled / SCROLL_PER_SERVICE)),
-        services.length - 1,
-      );
-      setActiveIndex(index);
+    const measure = () => {
+      if (trackRef.current) setCardWidth(trackRef.current.offsetWidth * 0.75);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
   }, []);
+
+  const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
+  const next = () =>
+    setActiveIndex((i) => Math.min(services.length - 1, i + 1));
 
   return (
     <Section variant="white" id="servicios">
-      <div
-        ref={containerRef}
-        className="relative"
-        style={{ height: `${services.length * SCROLL_PER_SERVICE}px` }}
-      >
-        {/* Sticky panel — natural content height, no full-screen lock */}
-        <div className="sticky top-0 pt-16 pb-8">
-          {/* Progress indicator */}
-          <div className="mb-8 flex items-center gap-4">
-            {services.map((s, i) => (
-              <div key={s.id} className="flex items-center gap-2">
-                <span
-                  className={cn(
-                    "font-heading text-xs font-medium tabular-nums transition-colors duration-500",
-                    i === activeIndex
-                      ? "text-foreground"
-                      : "text-muted-foreground/30",
-                  )}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div
-                  className={cn(
-                    "h-px w-10 transition-colors duration-500",
-                    i === activeIndex ? "bg-primary" : "bg-[#dde2e5]",
-                  )}
-                />
-              </div>
-            ))}
+      <Container>
+        {/* Header + arrow buttons */}
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
+              Nuestros servicios
+            </h2>
+            <p className="text-muted-foreground mt-2 text-base">
+              Soluciones a la medida para la operación de tu empresa.
+            </p>
           </div>
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={prev}
+              disabled={activeIndex === 0}
+              aria-label="Servicio anterior"
+              className="hover:bg-muted flex h-10 w-10 items-center justify-center rounded-lg border border-[#dde2e5] transition-colors disabled:opacity-30"
+            >
+              <ArrowLeftIcon className="size-4" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              disabled={activeIndex === services.length - 1}
+              aria-label="Siguiente servicio"
+              className="hover:bg-muted flex h-10 w-10 items-center justify-center rounded-lg border border-[#dde2e5] transition-colors disabled:opacity-30"
+            >
+              <ArrowRightIcon className="size-4" />
+            </button>
+          </div>
+        </div>
 
-          {/* Content panels — stacked in same grid cell */}
-          <div className="grid">
-            {services.map((service, i) => (
+        {/* Carousel track */}
+        <div ref={trackRef} className="overflow-hidden">
+          <div
+            className="flex gap-4 transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${activeIndex * (cardWidth + GAP)}px)`,
+            }}
+          >
+            {services.map((service) => (
               <div
                 key={service.id}
-                className="col-start-1 row-start-1 transition-all duration-500"
-                style={{
-                  opacity: i === activeIndex ? 1 : 0,
-                  transform:
-                    i === activeIndex ? "translateY(0)" : "translateY(1rem)",
-                  pointerEvents: i === activeIndex ? "auto" : "none",
-                }}
-              >
-                {/* Title left · Description right */}
-                <div className="flex items-start justify-between gap-8">
-                  <div className="flex flex-col gap-5">
-                    <h2 className="font-heading max-w-sm text-4xl font-normal tracking-tighter lg:text-5xl">
-                      {service.heading}
-                    </h2>
-                    <Button size="sm" className="w-fit">
-                      {service.ctaLabel}
-                    </Button>
-                  </div>
-                  <p className="text-muted-foreground max-w-xs pt-1 text-base leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Visual */}
-                <div className="mt-6 h-56 w-full overflow-hidden rounded-[0.38rem] bg-black/10" />
-              </div>
+                className="h-72 flex-shrink-0 overflow-hidden rounded-[0.38rem] bg-black/10"
+                style={{ width: cardWidth || "75%" }}
+              />
             ))}
           </div>
         </div>
-      </div>
+
+        {/* Service info below carousel */}
+        <div className="mt-6 flex items-start justify-between gap-12">
+          {/* Description — all stacked, active one visible */}
+          <div className="grid min-w-0 flex-1">
+            {services.map((service, i) => (
+              <p
+                key={service.id}
+                className="col-start-1 row-start-1 text-base leading-relaxed transition-opacity duration-300"
+                style={{ opacity: i === activeIndex ? 1 : 0 }}
+              >
+                <strong className="font-semibold">{service.heading}.</strong>{" "}
+                <span className="text-muted-foreground">
+                  {service.description}
+                </span>
+              </p>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <Button size="sm" className="shrink-0">
+            {services[activeIndex].ctaLabel}
+          </Button>
+        </div>
+      </Container>
     </Section>
   );
 }
