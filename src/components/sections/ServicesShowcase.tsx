@@ -6,6 +6,7 @@ import { ServiceNav } from "@/components/molecules/ServiceNav";
 import { BenefitsCard } from "@/components/molecules/BenefitsCard";
 import { ServiceBlock } from "@/components/molecules/ServiceBlock";
 import { services } from "@/lib/services-data";
+import { Container } from "../atoms/Container";
 
 export function ServicesShowcase() {
   const [activeId, setActiveId] = useState(services[0].id);
@@ -47,54 +48,56 @@ export function ServicesShowcase() {
   const activeService = services.find((s) => s.id === activeId) ?? services[0];
 
   return (
-    <Section variant="light-gray" id="servicios" className="py-20 lg:py-36">
-      {/* Mobile: tabs */}
-      <div className="mb-8 flex gap-2 overflow-x-auto lg:hidden">
-        {services.map((service) => (
-          <button
-            key={service.id}
-            type="button"
-            onClick={() => handleSelect(service.id)}
-            className={`font-heading shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              service.id === activeId
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground"
-            }`}
-          >
-            {service.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Desktop: two-column sticky layout */}
-      <div className="flex gap-12 lg:gap-16">
-        {/* Left column — sticky */}
-        <div className="hidden w-96 shrink-0 lg:block">
-          <div className="sticky top-40 space-y-8">
-            <ServiceNav activeId={activeId} onSelect={handleSelect} />
-            <BenefitsCard benefits={activeService.benefits} />
-          </div>
-        </div>
-
-        {/* Right column — scrollable */}
-        <div className="min-w-0 flex-1 space-y-20 lg:space-y-32">
+    <Section variant="white" id="servicios">
+      <Container>
+        {/* Mobile: tabs */}
+        <div className="mb-8 flex gap-2 overflow-x-auto lg:hidden">
           {services.map((service) => (
-            <div
+            <button
               key={service.id}
-              ref={(el) => {
-                if (el) sectionRefs.current.set(service.id, el);
-              }}
+              type="button"
+              onClick={() => handleSelect(service.id)}
+              className={`font-heading shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                service.id === activeId
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
+              }`}
             >
-              <ServiceBlock service={service} />
-
-              {/* Mobile: benefits card below each service */}
-              <div className="mt-8 lg:hidden">
-                <BenefitsCard benefits={service.benefits} />
-              </div>
-            </div>
+              {service.label}
+            </button>
           ))}
         </div>
-      </div>
+
+        {/* Desktop: two-column sticky layout */}
+        <div className="flex gap-12 lg:gap-16">
+          {/* Left column — sticky */}
+          <div className="hidden w-96 shrink-0 lg:block">
+            <div className="sticky top-40 space-y-8">
+              <ServiceNav activeId={activeId} onSelect={handleSelect} />
+              <BenefitsCard benefits={activeService.benefits} />
+            </div>
+          </div>
+
+          {/* Right column — scrollable */}
+          <div className="min-w-0 flex-1 space-y-20 lg:space-y-32">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                ref={(el) => {
+                  if (el) sectionRefs.current.set(service.id, el);
+                }}
+              >
+                <ServiceBlock service={service} />
+
+                {/* Mobile: benefits card below each service */}
+                <div className="mt-8 lg:hidden">
+                  <BenefitsCard benefits={service.benefits} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
     </Section>
   );
 }

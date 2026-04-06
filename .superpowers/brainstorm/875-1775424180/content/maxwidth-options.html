@@ -1,0 +1,87 @@
+<h2>¿Cuál es el max-width del contenedor?</h2>
+<p class="subtitle">Vista a 1440px de ancho — cuánto espacio queda fuera de las líneas guía en Desktop Large.</p>
+
+<style>
+.bp-row { display:flex; gap:6px; align-items:center; margin-bottom:10px; }
+.bp-label { font-size:10px; color:#999; width:80px; flex-shrink:0; }
+.bp-track { flex:1; height:36px; background:#f0f0f0; border-radius:3px; position:relative; overflow:hidden; }
+.bp-inner { position:absolute; top:0; bottom:0; background:#e8e8e8; border-left:1px solid #D7D7D7; border-right:1px solid #D7D7D7; left:50%; transform:translateX(-50%); display:flex; align-items:center; justify-content:center; font-size:9px; color:#555; font-weight:600; }
+.bp-outer { position:absolute; top:0; bottom:0; width:100%; display:flex; align-items:center; justify-content:space-between; padding:0 4px; pointer-events:none; }
+.bp-gap { font-size:9px; color:#bbb; }
+</style>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:12px;">
+      <!-- 1440px viewport, 1152px content = 144px each side -->
+      <div class="bp-row">
+        <span class="bp-label">1440px viewport</span>
+        <div class="bp-track">
+          <div class="bp-outer"><span class="bp-gap">144px</span><span class="bp-gap">144px</span></div>
+          <div class="bp-inner" style="width:80%;">1152px contenido</div>
+        </div>
+      </div>
+      <div class="bp-row">
+        <span class="bp-label">1280px viewport</span>
+        <div class="bp-track">
+          <div class="bp-outer"><span class="bp-gap">64px</span><span class="bp-gap">64px</span></div>
+          <div class="bp-inner" style="width:90%;">1152px contenido</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — max-w-6xl · 1152px</h3>
+      <p>El estándar actual. Margen generoso en pantallas grandes. Muy probado en el proyecto.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:12px;">
+      <!-- 1440px viewport, 1200px content = 120px each side -->
+      <div class="bp-row">
+        <span class="bp-label">1440px viewport</span>
+        <div class="bp-track">
+          <div class="bp-outer"><span class="bp-gap">120px</span><span class="bp-gap">120px</span></div>
+          <div class="bp-inner" style="width:83.3%;">1200px contenido</div>
+        </div>
+      </div>
+      <div class="bp-row">
+        <span class="bp-label">1280px viewport</span>
+        <div class="bp-track">
+          <div class="bp-outer"><span class="bp-gap">40px</span><span class="bp-gap">40px</span></div>
+          <div class="bp-inner" style="width:93.7%;">1200px contenido</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — custom · 1200px ✦ Recomendado</h3>
+      <p>El punto medio clásico. Más contenido visible sin sentirse apretado. Fácil de definir como token en Tailwind.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:12px;">
+      <!-- 1440px viewport, 1280px content = 80px each side -->
+      <div class="bp-row">
+        <span class="bp-label">1440px viewport</span>
+        <div class="bp-track">
+          <div class="bp-outer"><span class="bp-gap">80px</span><span class="bp-gap">80px</span></div>
+          <div class="bp-inner" style="width:88.8%;">1280px contenido</div>
+        </div>
+      </div>
+      <div class="bp-row">
+        <span class="bp-label">1280px viewport</span>
+        <div class="bp-track">
+          <div class="bp-outer"><span class="bp-gap">px-8</span><span class="bp-gap">px-8</span></div>
+          <div class="bp-inner" style="width:95.5%;">1280px (lleno)</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — max-w-7xl · 1280px</h3>
+      <p>Más expansivo. A 1280px el contenedor casi llena el viewport y las líneas quedan muy cerca del borde.</p>
+    </div>
+  </div>
+
+</div>

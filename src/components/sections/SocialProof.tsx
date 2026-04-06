@@ -28,8 +28,8 @@ const clientLogos = [
 
 export function SocialProof() {
   return (
-    <Section variant="white" className="py-12 pb-14 lg:pb-16">
-      <p className="text-foreground text-md text-center font-normal tracking-tight">
+    <Section variant="white">
+      <p className="text-foreground text-md pt-10 text-center font-normal tracking-tight">
         Confiados por empresas que construyen el futuro
       </p>
       <div className="border-border mt-8 grid grid-cols-2 rounded-[0.38rem] border sm:grid-cols-3 lg:grid-cols-6">
@@ -48,6 +48,7 @@ export function SocialProof() {
           </div>
         ))}
       </div>
+      <div className="pt-14" />
     </Section>
   );
 }

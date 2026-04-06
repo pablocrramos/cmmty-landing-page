@@ -1,0 +1,49 @@
+<h2>¿El Hero section debe usar el sistema de grid?</h2>
+<p class="subtitle">El Hero tiene un fondo de imagen a pantalla completa. Las líneas guía necesitan aplicarse sobre él o quedarse afuera como Navbar/Footer.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #1a1a2e; height: 180px; position: relative; overflow: hidden; border-radius: 4px;">
+        <!-- Fake hero image -->
+        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #2d1b69 0%, #8b1a1a 100%); opacity: 0.9;"></div>
+        <!-- Grid lines -->
+        <div style="position: absolute; top: 0; bottom: 0; left: 48px; width: 1px; background: rgba(255,255,255,0.25);"></div>
+        <div style="position: absolute; top: 0; bottom: 0; right: 48px; width: 1px; background: rgba(255,255,255,0.25);"></div>
+        <!-- Content -->
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 0 56px;">
+          <div style="height: 16px; width: 70%; background: rgba(255,255,255,0.8); border-radius: 3px;"></div>
+          <div style="height: 10px; width: 50%; background: rgba(255,255,255,0.5); border-radius: 3px;"></div>
+          <div style="height: 28px; width: 120px; background: #c0392b; border-radius: 4px; margin-top: 8px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Hero con líneas guía</h3>
+      <p>Las líneas aparecen sobre la imagen de fondo. Líneas semitransparentes en blanco para no interferir con el diseño.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background: #1a1a2e; height: 180px; position: relative; overflow: hidden; border-radius: 4px;">
+        <!-- Fake hero image -->
+        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #2d1b69 0%, #8b1a1a 100%); opacity: 0.9;"></div>
+        <!-- Content -->
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 0 56px;">
+          <div style="height: 16px; width: 70%; background: rgba(255,255,255,0.8); border-radius: 3px;"></div>
+          <div style="height: 10px; width: 50%; background: rgba(255,255,255,0.5); border-radius: 3px;"></div>
+          <div style="height: 28px; width: 120px; background: #c0392b; border-radius: 4px; margin-top: 8px;"></div>
+        </div>
+        <!-- Exempt badge -->
+        <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.5); color: white; font-size: 10px; padding: 2px 6px; border-radius: 99px;">Sin líneas</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Hero sin líneas (exento)</h3>
+      <p>El Hero se trata igual que Navbar y Footer — fondo full-bleed sin líneas guía visibles.</p>
+    </div>
+  </div>
+
+</div>

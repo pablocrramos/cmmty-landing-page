@@ -1,0 +1,92 @@
+<h2>¿Qué padding horizontal debe tener el contenido dentro de las líneas?</h2>
+<p class="subtitle">El espacio entre las líneas guía (1px) y el contenido real de cada sección.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-size:11px; color:#666; margin-bottom:8px; font-weight:600;">MOBILE &lt;768px / TABLET 768-1023px / DESKTOP 1024px+</div>
+      <!-- Mobile -->
+      <div style="display:flex; gap:12px; align-items:flex-start;">
+        <div style="flex:1;">
+          <div style="font-size:10px; color:#999; margin-bottom:4px; text-align:center;">Mobile</div>
+          <div style="background:#f5f5f5; height:80px; position:relative; border-radius:3px; overflow:hidden;">
+            <div style="position:absolute; top:0; bottom:0; left:16px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:0; bottom:0; right:16px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:#333; white-space:nowrap;">px-4 = 16px</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:10px; color:#999; margin-bottom:4px; text-align:center;">Tablet</div>
+          <div style="background:#f5f5f5; height:80px; position:relative; border-radius:3px; overflow:hidden;">
+            <div style="position:absolute; top:0; bottom:0; left:24px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:0; bottom:0; right:24px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:#333; white-space:nowrap;">px-6 = 24px</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:10px; color:#999; margin-bottom:4px; text-align:center;">Desktop</div>
+          <div style="background:#f5f5f5; height:80px; position:relative; border-radius:3px; overflow:hidden;">
+            <div style="position:absolute; top:0; bottom:0; left:32px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:0; bottom:0; right:32px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:#333; white-space:nowrap;">px-8 = 32px</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Escalonado suave (px-4 / px-6 / px-8)</h3>
+      <p>16px mobile · 24px tablet · 32px desktop. Igual al patrón mayoritario actual. Incremento gradual.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-size:11px; color:#666; margin-bottom:8px; font-weight:600;">MOBILE / TABLET / DESKTOP</div>
+      <div style="display:flex; gap:12px; align-items:flex-start;">
+        <div style="flex:1;">
+          <div style="font-size:10px; color:#999; margin-bottom:4px; text-align:center;">Mobile</div>
+          <div style="background:#f5f5f5; height:80px; position:relative; border-radius:3px; overflow:hidden;">
+            <div style="position:absolute; top:0; bottom:0; left:24px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:0; bottom:0; right:24px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:#333; white-space:nowrap;">px-6 = 24px</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:10px; color:#999; margin-bottom:4px; text-align:center;">Tablet</div>
+          <div style="background:#f5f5f5; height:80px; position:relative; border-radius:3px; overflow:hidden;">
+            <div style="position:absolute; top:0; bottom:0; left:32px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:0; bottom:0; right:32px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:#333; white-space:nowrap;">px-8 = 32px</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:10px; color:#999; margin-bottom:4px; text-align:center;">Desktop</div>
+          <div style="background:#f5f5f5; height:80px; position:relative; border-radius:3px; overflow:hidden;">
+            <div style="position:absolute; top:0; bottom:0; left:48px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:0; bottom:0; right:48px; width:1px; background:#D7D7D7;"></div>
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:#333; white-space:nowrap;">px-12 = 48px</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Más respiro (px-6 / px-8 / px-12)</h3>
+      <p>24px mobile · 32px tablet · 48px desktop. Más espacio entre líneas y contenido, sensación más "aireada".</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-size:11px; color:#666; margin-bottom:8px; font-weight:600;">DESDE FIGMA — valores exactos</div>
+      <div style="height:80px; display:flex; align-items:center; justify-content:center; background:#fff8f0; border-radius:4px; border:1px dashed #f0a070;">
+        <p style="font-size:11px; color:#c0622a; text-align:center; padding:0 16px;">Tengo los valores exactos del Figma y los proporciono manualmente</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Valores exactos del Figma</h3>
+      <p>Si tienes el Figma abierto y conoces los números exactos de padding en cada breakpoint, dímelos y los uso directamente.</p>
+    </div>
+  </div>
+
+</div>
