@@ -1,103 +1,114 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Section } from "@/components/atoms/Section";
-import { ServiceNav } from "@/components/molecules/ServiceNav";
-import { BenefitsCard } from "@/components/molecules/BenefitsCard";
-import { ServiceBlock } from "@/components/molecules/ServiceBlock";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { services } from "@/lib/services-data";
-import { Container } from "../atoms/Container";
 
 export function ServicesShowcase() {
-  const [activeId, setActiveId] = useState(services[0].id);
-  const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
-  const isClickScrolling = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sentinelRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    sectionRefs.current.forEach((el, id) => {
-      const observer = new IntersectionObserver(
+    sentinelRefs.current.forEach((el, index) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting && !isClickScrolling.current) {
-            setActiveId(id);
-          }
+          if (entry.isIntersecting) setActiveIndex(index);
         },
-        { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+        { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
       );
-      observer.observe(el);
-      observers.push(observer);
+      obs.observe(el);
+      observers.push(obs);
     });
 
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  function handleSelect(id: string) {
-    const el = sectionRefs.current.get(id);
-    if (!el) return;
-
-    isClickScrolling.current = true;
-    setActiveId(id);
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    setTimeout(() => {
-      isClickScrolling.current = false;
-    }, 800);
-  }
-
-  const activeService = services.find((s) => s.id === activeId) ?? services[0];
-
   return (
-    <Section variant="white" id="servicios">
-      <Container>
-        {/* Mobile: tabs */}
-        <div className="mb-8 flex gap-2 overflow-x-auto lg:hidden">
-          {services.map((service) => (
-            <button
-              key={service.id}
-              type="button"
-              onClick={() => handleSelect(service.id)}
-              className={`font-heading shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                service.id === activeId
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground"
-              }`}
-            >
-              {service.label}
-            </button>
-          ))}
-        </div>
+    <section id="servicios" className="bg-white">
+      {/* Scroll space: 100vh per service */}
+      <div
+        className="relative"
+        style={{ height: `${services.length * 100}vh` }}
+      >
+        {/* Sticky viewport panel */}
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+          <div className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
+            {/* Progress indicator */}
+            <div className="mb-10 flex items-center gap-4">
+              {services.map((s, i) => (
+                <div key={s.id} className="flex items-center gap-2">
+                  <span
+                    className={cn(
+                      "font-heading text-xs font-medium tabular-nums transition-colors duration-500",
+                      i === activeIndex
+                        ? "text-foreground"
+                        : "text-muted-foreground/30",
+                    )}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div
+                    className={cn(
+                      "h-px w-10 transition-colors duration-500",
+                      i === activeIndex ? "bg-primary" : "bg-[#dde2e5]",
+                    )}
+                  />
+                </div>
+              ))}
+            </div>
 
-        {/* Desktop: two-column sticky layout */}
-        <div className="flex gap-12 lg:gap-16">
-          {/* Left column — sticky */}
-          <div className="hidden w-96 shrink-0 lg:block">
-            <div className="sticky top-40 space-y-8">
-              <ServiceNav activeId={activeId} onSelect={handleSelect} />
-              <BenefitsCard benefits={activeService.benefits} />
+            {/* Content panels — stacked in same grid cell */}
+            <div className="grid">
+              {services.map((service, i) => (
+                <div
+                  key={service.id}
+                  className="col-start-1 row-start-1 transition-all duration-500"
+                  style={{
+                    opacity: i === activeIndex ? 1 : 0,
+                    transform:
+                      i === activeIndex ? "translateY(0)" : "translateY(1rem)",
+                    pointerEvents: i === activeIndex ? "auto" : "none",
+                  }}
+                >
+                  {/* Title left · Description right */}
+                  <div className="flex items-start justify-between gap-8">
+                    <div className="flex flex-col gap-5">
+                      <h2 className="font-heading max-w-sm text-4xl font-normal tracking-tighter lg:text-5xl">
+                        {service.heading}
+                      </h2>
+                      <Button size="sm" className="w-fit">
+                        {service.ctaLabel}
+                      </Button>
+                    </div>
+                    <p className="text-muted-foreground max-w-xs pt-1 text-base leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Visual */}
+                  <div className="mt-6 aspect-video w-full overflow-hidden rounded-[0.38rem] bg-black/10" />
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Right column — scrollable */}
-          <div className="min-w-0 flex-1 space-y-20 lg:space-y-32">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                ref={(el) => {
-                  if (el) sectionRefs.current.set(service.id, el);
-                }}
-              >
-                <ServiceBlock service={service} />
-
-                {/* Mobile: benefits card below each service */}
-                <div className="mt-8 lg:hidden">
-                  <BenefitsCard benefits={service.benefits} />
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-      </Container>
-    </Section>
+
+        {/* Invisible sentinels — one per service, each 100vh */}
+        {services.map((service, i) => (
+          <div
+            key={service.id}
+            ref={(el) => {
+              sentinelRefs.current[i] = el;
+            }}
+            className="pointer-events-none absolute w-full"
+            style={{ top: `${i * 100}vh`, height: "100vh" }}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
