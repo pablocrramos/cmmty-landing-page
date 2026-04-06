@@ -8,6 +8,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { Footer } from "@/components/organisms/Footer";
+import { IntroText } from "@/components/sections/IntroText";
 
 export default function Home() {
   return (
@@ -16,10 +17,11 @@ export default function Home() {
       <main>
         <Hero />
         <SocialProof />
+        <IntroText />
         {/* <QuienesSomos /> */}
         <ServicesShowcase />
-        <FactsBento />
         <HowItWorks />
+        <FactsBento />
         {/* <WhyUs /> */}
         <CtaBanner />
       </main>

@@ -31,10 +31,9 @@ export function HowItWorks() {
   return (
     <Section variant="white">
       <Container>
-        <h2 className="font-heading max-w-sm text-4xl font-normal tracking-tighter md:text-[2.5rem]">
+        <h2 className="font-heading text-2xl font-normal tracking-tighter md:text-3xl">
           Así de fácil es trabajar con nosotros
         </h2>
-
         <div className="mt-16 grid gap-10 sm:grid-cols-3">
           {steps.map((step) => (
             <div key={step.title} className="flex flex-col gap-6">
@@ -42,7 +41,7 @@ export function HowItWorks() {
                 <step.icon className="text-primary size-5" />
               </div>
               <p className="text-base leading-relaxed">
-                <strong className="font-semibold">{step.title}</strong>{" "}
+                <strong className="font-medium">{step.title}</strong>{" "}
                 <span className="text-muted-foreground">
                   {step.description}
                 </span>
