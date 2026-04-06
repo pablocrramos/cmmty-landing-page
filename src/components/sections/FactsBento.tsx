@@ -19,7 +19,7 @@ const partnerLogos = [
 export function FactsBento() {
   return (
     <Section variant="light-gray">
-      <Container className="max-w-5xl">
+      <Container>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {/* Row 1 — stat cards */}
           {stats.map((stat, i) => (
