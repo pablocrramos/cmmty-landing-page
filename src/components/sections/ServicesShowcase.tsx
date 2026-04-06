@@ -93,7 +93,7 @@ export function ServicesShowcase() {
                 </div>
 
                 {/* Visual */}
-                <div className="mt-6 aspect-video w-full overflow-hidden rounded-[0.38rem] bg-black/10" />
+                <div className="mt-6 h-56 w-full overflow-hidden rounded-[0.38rem] bg-black/10" />
               </div>
             ))}
           </div>
