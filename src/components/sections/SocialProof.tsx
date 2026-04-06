@@ -28,7 +28,10 @@ const clientLogos = [
 
 export function SocialProof() {
   return (
-    <Section variant="white">
+    <Section
+      variant="white"
+      className="relative z-10 -mt-28 overflow-hidden rounded-t-2xl"
+    >
       <p className="text-foreground text-md pt-10 text-center font-normal tracking-tight">
         Confiados por empresas que construyen el futuro
       </p>
