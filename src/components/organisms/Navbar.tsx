@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "#servicios", label: "Servicios" },
   { href: "#nosotros", label: "Nosotros" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -70,7 +70,7 @@ export function Navbar() {
           <Button
             size="sm"
             className={"font-normal"}
-            render={<a href="#contacto" />}
+            render={<a href="/contacto" />}
           >
             Cotiza ahora
           </Button>
@@ -124,7 +124,7 @@ export function Navbar() {
             <Button
               size="sm"
               className="w-full"
-              render={<a href="#contacto" />}
+              render={<a href="/contacto" />}
               onClick={() => setMobileOpen(false)}
             >
               Cotiza ahora
