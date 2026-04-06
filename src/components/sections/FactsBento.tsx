@@ -2,6 +2,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Section } from "@/components/atoms/Section";
 import { Container } from "../atoms/Container";
+import { TextBlock } from "../atoms/TextBlock";
 
 const stats = [
   { value: "25 años", description: "Creciendo en la industria de impresión." },
@@ -23,6 +24,11 @@ export function FactsBento() {
   return (
     <Section variant="light-gray">
       <Container>
+        <TextBlock className="pb-16">
+          Tu operación de impresión, resuelta por completo. Equipa tu negocio
+          con servicios gestionados de impresión, digitalización y soporte
+          técnico que se adaptan a lo que necesitas.{" "}
+        </TextBlock>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {/* Row 1 — stat cards */}
           {stats.map((stat, i) => (
@@ -34,7 +40,7 @@ export function FactsBento() {
                 i === 2 && "sm:col-span-2 lg:col-span-1",
               )}
             >
-              <span className="font-heading text-4xl leading-none font-bold lg:text-5xl">
+              <span className="font-heading text-4xl leading-none font-medium lg:text-5xl">
                 {stat.value}
               </span>
               <p className="text-muted-foreground text-sm">
