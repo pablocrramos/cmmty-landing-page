@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { Logo } from "@/components/atoms/Logo";
 import { Button } from "@/components/ui/button";
@@ -14,10 +15,15 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
+
+  // On non-home pages the navbar is always opaque
+  const transparent = isHome && atTop;
 
   useEffect(() => {
     const onScroll = () => {
@@ -39,13 +45,16 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         visible ? "translate-y-0" : "-translate-y-full",
-        atTop ? "bg-transparent" : "bg-white shadow-sm",
+        transparent ? "bg-transparent" : "bg-white shadow-sm",
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
         <div className="flex items-center gap-6">
           <Link href="/" aria-label="CM Digital inicio">
-            <Logo variant={atTop ? "dark-bg" : "light-bg"} className="h-7" />
+            <Logo
+              variant={transparent ? "dark-bg" : "light-bg"}
+              className="h-7"
+            />
           </Link>
           <ul className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
@@ -54,7 +63,7 @@ export function Navbar() {
                   href={link.href}
                   className={cn(
                     "font-heading text-[1rem] font-normal tracking-tight transition-colors",
-                    atTop
+                    transparent
                       ? "text-white/90 hover:text-white"
                       : "text-muted-foreground hover:text-foreground",
                   )}
@@ -85,11 +94,17 @@ export function Navbar() {
         >
           {mobileOpen ? (
             <XIcon
-              className={cn("size-6", atTop ? "text-white" : "text-foreground")}
+              className={cn(
+                "size-6",
+                transparent ? "text-white" : "text-foreground",
+              )}
             />
           ) : (
             <ListIcon
-              className={cn("size-6", atTop ? "text-white" : "text-foreground")}
+              className={cn(
+                "size-6",
+                transparent ? "text-white" : "text-foreground",
+              )}
             />
           )}
         </button>
@@ -100,7 +115,7 @@ export function Navbar() {
         className={cn(
           "overflow-hidden transition-all duration-300 md:hidden",
           mobileOpen ? "max-h-64 border-t" : "max-h-0",
-          atTop
+          transparent
             ? "border-white/20 bg-black/40 backdrop-blur-sm"
             : "border-border bg-white",
         )}
@@ -112,7 +127,7 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "font-sans text-base font-medium",
-                  atTop ? "text-white" : "text-foreground",
+                  transparent ? "text-white" : "text-foreground",
                 )}
                 onClick={() => setMobileOpen(false)}
               >
