@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/organisms/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { SocialProof } from "@/components/sections/SocialProof";
 import { QuienesSomos } from "@/components/sections/QuienesSomos";
 import { ServicesShowcase } from "@/components/sections/ServicesShowcase";
 import { FactsBento } from "@/components/sections/FactsBento";
@@ -16,7 +15,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <SocialProof />
         <IntroText />
         {/* <QuienesSomos /> */}
         <ServicesShowcase />

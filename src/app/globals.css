@@ -6,8 +6,8 @@
 
 @theme inline {
   /* Fonts */
-  --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
+  --font-sans: var(--font-ibm);
+  --font-heading: var(--font-ibm);
 
   /* Font sizes — design system scale */
   --font-size-h1: 3.75rem;
@@ -65,6 +65,11 @@
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
+
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-float-slow: float 4s ease-in-out infinite;
+  --animate-marquee: marquee 25s linear infinite;
 
   /* Border radius */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -138,6 +143,25 @@
   --sidebar-accent-foreground: #141414;
   --sidebar-border: #dde2e5;
   --sidebar-ring: #c01826;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @layer base {

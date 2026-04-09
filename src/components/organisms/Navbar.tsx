@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { Logo } from "@/components/atoms/Logo";
 import { Button } from "@/components/ui/button";
@@ -15,24 +14,14 @@ const navLinks = [
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [atTop, setAtTop] = useState(true);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
-
-  // On non-home pages the navbar is always opaque
-  const transparent = isHome && atTop;
 
   useEffect(() => {
     const onScroll = () => {
       const currentY = window.scrollY;
-      const isAtTop = currentY < 10;
-      const isScrollingUp = currentY < lastScrollY.current;
-
-      setAtTop(isAtTop);
-      setVisible(isAtTop || isScrollingUp);
+      setVisible(currentY < 10 || currentY < lastScrollY.current);
       lastScrollY.current = currentY;
     };
 
@@ -43,69 +32,56 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-transform duration-300",
         visible ? "translate-y-0" : "-translate-y-full",
-        transparent ? "bg-transparent" : "bg-white shadow-sm",
+        /* Mobile: solid white bar */
+        "bg-white shadow-sm md:bg-transparent md:shadow-none",
       )}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
-        <div className="flex items-center gap-6">
-          <Link href="/" aria-label="CM Digital inicio">
-            <Logo
-              variant={transparent ? "dark-bg" : "light-bg"}
-              className="h-7"
-            />
-          </Link>
-          <ul className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className={cn(
-                    "font-heading text-[1rem] font-normal tracking-tight transition-colors",
-                    transparent
-                      ? "text-white/90 hover:text-white"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="hidden md:block">
+      {/* Desktop: floating island */}
+      <div className="hidden md:flex md:justify-center md:px-6 md:pt-4">
+        <nav className="border-border/60 flex h-14 w-full max-w-3xl items-center justify-between rounded-full border bg-white px-3 pl-6 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
+          <div className="flex items-center gap-8">
+            <Link href="/" aria-label="CM Digital inicio">
+              <Logo variant="light-bg" className="h-6" />
+            </Link>
+            <ul className="flex items-center gap-6">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="font-heading text-muted-foreground hover:text-foreground text-[0.9rem] font-normal tracking-tight transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
           <Button
             size="sm"
-            className={"font-normal"}
+            className="rounded-full font-normal"
             render={<a href="/contacto" />}
           >
             Cotiza ahora
           </Button>
-        </div>
+        </nav>
+      </div>
 
-        {/* Mobile hamburger */}
+      {/* Mobile: full-width bar */}
+      <nav className="flex h-16 items-center justify-between px-4 md:hidden">
+        <Link href="/" aria-label="CM Digital inicio">
+          <Logo variant="light-bg" className="h-7" />
+        </Link>
         <button
           type="button"
-          className="md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
         >
           {mobileOpen ? (
-            <XIcon
-              className={cn(
-                "size-6",
-                transparent ? "text-white" : "text-foreground",
-              )}
-            />
+            <XIcon className="text-foreground size-6" />
           ) : (
-            <ListIcon
-              className={cn(
-                "size-6",
-                transparent ? "text-white" : "text-foreground",
-              )}
-            />
+            <ListIcon className="text-foreground size-6" />
           )}
         </button>
       </nav>
@@ -113,11 +89,8 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300 md:hidden",
+          "border-border overflow-hidden bg-white transition-all duration-300 md:hidden",
           mobileOpen ? "max-h-64 border-t" : "max-h-0",
-          transparent
-            ? "border-white/20 bg-black/40 backdrop-blur-sm"
-            : "border-border bg-white",
         )}
       >
         <ul className="flex flex-col gap-4 px-4 py-6">
@@ -125,10 +98,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={cn(
-                  "font-sans text-base font-medium",
-                  transparent ? "text-white" : "text-foreground",
-                )}
+                className="text-foreground font-sans text-base font-medium"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

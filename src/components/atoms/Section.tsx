@@ -9,14 +9,8 @@ interface SectionProps {
 }
 
 const variantMap = {
-  white: {
-    bg: "bg-white",
-    border: "border-[#D7D7D7]",
-  },
-  "light-gray": {
-    bg: "bg-[var(--surface)]",
-    border: "border-[#B9B9B9]",
-  },
+  white: "bg-white",
+  "light-gray": "bg-[var(--surface)]",
 } as const;
 
 export function Section({
@@ -26,16 +20,10 @@ export function Section({
   innerClassName,
   children,
 }: SectionProps) {
-  const { bg, border } = variantMap[variant];
-
   return (
-    <section id={id} className={cn(bg, className)}>
+    <section id={id} className={cn(variantMap[variant], className)}>
       <div
-        className={cn(
-          "mx-auto max-w-325 px-3 sm:border-r sm:border-l sm:px-4 lg:px-3",
-          border,
-          innerClassName,
-        )}
+        className={cn("mx-auto max-w-325 px-3 sm:px-4 lg:px-3", innerClassName)}
       >
         {children}
       </div>

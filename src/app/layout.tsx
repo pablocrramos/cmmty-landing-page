@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins, Roboto } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-heading",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const roboto = Roboto({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -28,10 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${poppins.variable} ${roboto.variable} h-full antialiased`}
-    >
+    <html lang="es" className={`${ibmPlexSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
