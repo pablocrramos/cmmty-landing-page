@@ -28,7 +28,7 @@ const clientLogos = [
 
 export function SocialProof() {
   return (
-    <Section variant="white">
+    <Section variant="light-gray">
       <p className="text-foreground text-md pt-10 text-center font-normal tracking-tight">
         Confiados por empresas que construyen el futuro
       </p>

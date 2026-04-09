@@ -28,7 +28,7 @@ export function ServicesShowcase() {
     setActiveIndex((i) => Math.min(services.length - 1, i + 1));
 
   return (
-    <Section variant="white" id="servicios">
+    <Section variant="light-gray" id="servicios">
       <Container>
         {/* Header + arrow buttons */}
         <div className="mb-8 flex items-end justify-between">

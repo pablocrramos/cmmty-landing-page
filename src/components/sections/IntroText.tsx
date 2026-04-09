@@ -3,7 +3,7 @@ import { TextBlock } from "../atoms/TextBlock";
 
 export function IntroText() {
   return (
-    <Section variant="white">
+    <Section variant="light-gray">
       <TextBlock className="py-16">
         Tu operación de impresión, resuelta por completo.
         <p className="text-muted-foreground/70">

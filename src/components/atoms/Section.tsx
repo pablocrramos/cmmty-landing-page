@@ -32,7 +32,7 @@ export function Section({
     <section id={id} className={cn(bg, className)}>
       <div
         className={cn(
-          "mx-auto max-w-[1200px] px-4 sm:border-r sm:border-l sm:px-6 lg:px-8",
+          "mx-auto max-w-325 px-3 sm:border-r sm:border-l sm:px-4 lg:px-3",
           border,
           innerClassName,
         )}

@@ -23,12 +23,7 @@ const cardClass =
 export function FactsBento() {
   return (
     <Section variant="light-gray">
-      <Container>
-        <TextBlock className="pb-16">
-          Tu operación de impresión, resuelta por completo. Equipa tu negocio
-          con servicios gestionados de impresión, digitalización y soporte
-          técnico que se adaptan a lo que necesitas.{" "}
-        </TextBlock>
+      <Container className="pt-4!">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {/* Row 1 — stat cards */}
           {stats.map((stat, i) => (

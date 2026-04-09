@@ -29,7 +29,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <Section variant="white">
+    <Section variant="light-gray" id="como-funciona">
       <Container>
         <h2 className="font-heading text-2xl font-normal tracking-tighter md:text-3xl">
           Así de fácil es trabajar con nosotros
