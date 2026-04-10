@@ -5,6 +5,7 @@ export interface Service {
   description: string;
   benefits: string[];
   ctaLabel: string;
+  video: string;
 }
 
 export const services: Service[] = [
@@ -21,6 +22,7 @@ export const services: Service[] = [
       "Soporte técnico sin costo adicional",
     ],
     ctaLabel: "Explora MPS",
+    video: "/assets/imgs/stock/video-1.mp4",
   },
   {
     id: "paperless",
@@ -35,6 +37,7 @@ export const services: Service[] = [
       "Trazabilidad completa de documentos",
     ],
     ctaLabel: "Explora Paperless",
+    video: "/assets/imgs/stock/video-2.mp4",
   },
   {
     id: "multifuncionales",
@@ -49,5 +52,6 @@ export const services: Service[] = [
       "Soporte técnico garantizado",
     ],
     ctaLabel: "Explora Equipos",
+    video: "/assets/imgs/stock/video-3.mp4",
   },
 ];

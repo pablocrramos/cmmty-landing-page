@@ -1,31 +1,51 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CheckCircleIcon,
+} from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/atoms/Section";
 import { Container } from "../atoms/Container";
 import { services } from "@/lib/services-data";
+import { cn } from "@/lib/utils";
 
-const GAP = 16; // px — matches gap-4
+const GAP = 16;
 
 export function ServicesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     const measure = () => {
-      if (trackRef.current) setCardWidth(trackRef.current.offsetWidth * 0.75);
+      if (trackRef.current) setCardWidth(trackRef.current.offsetWidth * 0.8);
     };
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, []);
 
+  // Play active video, pause others
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === activeIndex) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [activeIndex]);
+
   const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
   const next = () =>
     setActiveIndex((i) => Math.min(services.length - 1, i + 1));
+
+  const active = services[activeIndex];
 
   return (
     <Section variant="light-gray" id="servicios">
@@ -34,11 +54,8 @@ export function ServicesShowcase() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
-              Nuestros servicios
+              Conoce Nuestros servicios
             </h2>
-            <p className="text-muted-foreground mt-2 text-base">
-              Soluciones a la medida para la operación de tu empresa.
-            </p>
           </div>
           <div className="flex shrink-0 gap-2">
             <button
@@ -62,7 +79,7 @@ export function ServicesShowcase() {
           </div>
         </div>
 
-        {/* Carousel track */}
+        {/* Video carousel */}
         <div ref={trackRef} className="overflow-hidden">
           <div
             className="flex gap-4 transition-transform duration-500 ease-in-out"
@@ -70,38 +87,79 @@ export function ServicesShowcase() {
               transform: `translateX(-${activeIndex * (cardWidth + GAP)}px)`,
             }}
           >
-            {services.map((service) => (
+            {services.map((service, i) => (
               <div
                 key={service.id}
-                className="h-72 flex-shrink-0 overflow-hidden rounded-2xl bg-black/10"
-                style={{ width: cardWidth || "75%" }}
-              />
+                className="flex-shrink-0 overflow-hidden rounded-2xl bg-black"
+                style={{ width: cardWidth || "80%" }}
+              >
+                <video
+                  ref={(el) => {
+                    videoRefs.current[i] = el;
+                  }}
+                  src={service.video}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="h-80 w-full object-cover sm:h-96 lg:h-[28rem]"
+                />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Service info below carousel */}
-        <div className="mt-6 flex items-start justify-between gap-12">
-          {/* Description — all stacked, active one visible */}
-          <div className="grid min-w-0 flex-1">
-            {services.map((service, i) => (
-              <p
-                key={service.id}
-                className="col-start-1 row-start-1 text-base leading-relaxed transition-opacity duration-300"
-                style={{ opacity: i === activeIndex ? 1 : 0 }}
-              >
-                <strong className="font-semibold">{service.heading}.</strong>{" "}
-                <span className="text-muted-foreground">
-                  {service.description}
-                </span>
-              </p>
-            ))}
+        {/* Service info — structured card layout */}
+        <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_auto]">
+          {/* Left: label + heading + description */}
+          <div className="min-w-0">
+            {/* Active service content — stacked for crossfade */}
+            <div className="relative">
+              {services.map((service, i) => (
+                <div
+                  key={service.id}
+                  className={cn(
+                    "transition-all duration-300",
+                    i === activeIndex
+                      ? "relative opacity-100"
+                      : "pointer-events-none absolute inset-0 opacity-0",
+                  )}
+                  aria-hidden={i !== activeIndex}
+                >
+                  <h3 className="font-heading text-xl font-medium tracking-tight sm:text-2xl">
+                    {service.heading}
+                  </h3>
+                  <p className="text-muted-foreground mt-2 max-w-xl text-base leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* Benefits checklist */}
+                  <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+                    {service.benefits.map((benefit) => (
+                      <li key={benefit} className="flex items-start gap-2.5">
+                        <CheckCircleIcon
+                          weight="fill"
+                          className="text-primary mt-0.5 size-4.5 shrink-0"
+                        />
+                        <span className="text-sm leading-snug">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* CTA */}
-          <Button size="sm" className="shrink-0">
-            {services[activeIndex].ctaLabel}
-          </Button>
+          {/* Right: CTA */}
+          <div className="flex items-end lg:pb-1">
+            <Button
+              size="sm"
+              className="shrink-0"
+              render={<a href="/contacto" />}
+            >
+              {active.ctaLabel} <ArrowRightIcon className="size-3.5" />
+            </Button>
+          </div>
         </div>
       </Container>
     </Section>
