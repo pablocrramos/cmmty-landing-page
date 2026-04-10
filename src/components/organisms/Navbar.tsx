@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "#servicios", label: "Servicios" },
   { href: "/empresa", label: "Empresa" },
-  { href: "/contacto", label: "Contacto" },
 ];
 
 export function Navbar() {

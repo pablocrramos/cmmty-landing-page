@@ -28,7 +28,7 @@ const navColumns = [
 export function Footer() {
   return (
     <footer className="bg-foreground px-4 pt-16 lg:px-8 lg:pt-20">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl border-t border-white/10 pt-16 lg:pt-20">
         {/* Main grid - Columnas de navegación alineadas a la derecha */}
         <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12">
           {/* Brand column - Se mantiene a la izquierda */}

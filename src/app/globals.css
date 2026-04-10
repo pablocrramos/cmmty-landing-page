@@ -70,6 +70,7 @@
   --animate-float: float 3s ease-in-out infinite;
   --animate-float-slow: float 4s ease-in-out infinite;
   --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-slow: marquee 35s linear infinite;
 
   /* Border radius */
   --radius-sm: calc(var(--radius) * 0.6);
