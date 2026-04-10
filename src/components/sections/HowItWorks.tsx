@@ -37,7 +37,7 @@ export function HowItWorks() {
         <div className="mt-16 grid gap-10 sm:grid-cols-3">
           {steps.map((step) => (
             <div key={step.title} className="flex flex-col gap-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-[0.38rem] border border-[#dde2e5]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#dde2e5]">
                 <step.icon className="text-primary size-5" />
               </div>
               <p className="text-base leading-relaxed">

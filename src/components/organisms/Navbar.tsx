@@ -40,7 +40,7 @@ export function Navbar() {
     >
       {/* Desktop: floating island */}
       <div className="hidden md:flex md:justify-center md:px-6 md:pt-4">
-        <nav className="border-border/60 flex h-14 w-full max-w-3xl items-center justify-between rounded-full border bg-white px-3 pl-6 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
+        <nav className="border-border/60 flex h-14 w-full max-w-3xl items-center justify-between rounded-2xl border bg-white px-3 pl-6 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
           <div className="flex items-center gap-8">
             <Link href="/" aria-label="CM Digital inicio">
               <Logo variant="light-bg" className="h-6" />
@@ -60,7 +60,7 @@ export function Navbar() {
           </div>
           <Button
             size="sm"
-            className="rounded-full font-normal"
+            className="font-normal"
             render={<a href="/contacto" />}
           >
             Cotiza ahora

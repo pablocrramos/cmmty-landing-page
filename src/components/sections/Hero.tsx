@@ -109,12 +109,12 @@ export function Hero() {
 
         {/* Center copy */}
         <div className="relative z-10 mx-auto max-w-xl px-4 py-6 text-center lg:py-10">
-          <h1 className="text-foreground text-[1.75rem] leading-[1.15] font-bold tracking-tight sm:text-4xl lg:text-[2.75rem]">
+          <h1 className="text-foreground text-[1.75rem] leading-[1.15] font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
             Tu operación de impresión.
             <br />
             Resuelta por completo.
           </h1>
-          <p className="text-muted-foreground mt-5 text-base leading-relaxed sm:text-lg">
+          <p className="text-muted-foreground mt-5 text-base leading-relaxed font-medium sm:text-lg">
             Servicios gestionados de impresión, digitalización y soporte que se
             adaptan a lo que necesitas.
           </p>

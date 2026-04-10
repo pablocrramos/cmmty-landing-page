@@ -41,7 +41,7 @@ export function ContactInfo() {
           <div className="flex flex-col gap-6">
             {contactItems.map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.38rem] border border-[#dde2e5]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#dde2e5]">
                   <Icon className="text-primary size-5" />
                 </div>
                 <div>
@@ -64,7 +64,7 @@ export function ContactInfo() {
           </div>
 
           {/* Google Maps */}
-          <div className="overflow-hidden rounded-[0.38rem] border border-[#dde2e5]">
+          <div className="overflow-hidden rounded-2xl border border-[#dde2e5]">
             <iframe
               title="Ubicación CM Digital"
               src="https://maps.google.com/maps?q=Monterrey+Centro,+Nuevo+León,+México&output=embed&z=14"

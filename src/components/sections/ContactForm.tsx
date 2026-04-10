@@ -14,7 +14,7 @@ const employeeOptions = [
 ];
 
 const inputClass =
-  "w-full rounded-[0.38rem] border border-[#dde2e5] bg-white px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10";
+  "w-full rounded-lg border border-[#dde2e5] bg-white px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10";
 
 const labelClass = "mb-1.5 block text-sm font-medium text-foreground";
 

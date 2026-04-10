@@ -18,7 +18,7 @@ const partnerLogos = [
 ];
 
 const cardClass =
-  "flex flex-col justify-between rounded-[0.38rem] p-7 bg-white border border-[#dde2e5] transition-[border-color,box-shadow] duration-300 hover:border-[rgba(192,24,38,0.35)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]";
+  "flex flex-col justify-between rounded-2xl p-7 bg-white border border-[#dde2e5] transition-[border-color,box-shadow] duration-300 hover:border-[rgba(192,24,38,0.35)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]";
 
 export function FactsBento() {
   return (

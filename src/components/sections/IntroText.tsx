@@ -1,16 +1,14 @@
 import { Section } from "@/components/atoms/Section";
-import { TextBlock } from "../atoms/TextBlock";
 
 export function IntroText() {
   return (
     <Section variant="light-gray">
-      <TextBlock className="py-16">
-        Tu operación de impresión, resuelta por completo.
-        <p className="text-muted-foreground/70">
-          Equipa tu negocio con servicios gestionados de impresión,
-          digitalización y soporte técnico que se adaptan a lo que necesitas.
+      <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:py-20">
+        <p className="font-heading text-2xl leading-snug font-normal tracking-tight sm:text-3xl lg:text-4xl">
+          CMdigital equipa tu negocio con impresión gestionada 🖨️ digitalización
+          de documentos 📄 y soporte specializado 🔧 que se adapta a ti.
         </p>
-      </TextBlock>
+      </div>
     </Section>
   );
 }

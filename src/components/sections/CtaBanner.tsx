@@ -7,7 +7,7 @@ export function CtaBanner() {
   return (
     <Section variant="white" id="contacto">
       <Container>
-        <div className="relative overflow-hidden rounded-[0.38rem] bg-gradient-to-b from-red-950 via-red-800 to-rose-400 px-10 py-14 lg:min-h-56 lg:px-14 lg:py-16">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-red-950 via-red-800 to-rose-400 px-10 py-14 lg:min-h-56 lg:px-14 lg:py-16">
           {/* Left: text + CTA */}
           <div className="relative z-10 max-w-xs lg:max-w-sm">
             <h2 className="font-heading text-2xl leading-snug font-medium text-white lg:text-3xl">

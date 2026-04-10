@@ -73,7 +73,7 @@ export function ServicesShowcase() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="h-72 flex-shrink-0 overflow-hidden rounded-[0.38rem] bg-black/10"
+                className="h-72 flex-shrink-0 overflow-hidden rounded-2xl bg-black/10"
                 style={{ width: cardWidth || "75%" }}
               />
             ))}
