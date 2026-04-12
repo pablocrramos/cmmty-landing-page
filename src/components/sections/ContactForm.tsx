@@ -14,7 +14,7 @@ const employeeOptions = [
 ];
 
 const inputClass =
-  "w-full rounded-lg border border-[#dde2e5] bg-white px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10";
+  "w-full rounded-lg border border-border bg-white px-4 py-3 text-base text-foreground placeholder:text-muted-foreground/50 transition-colors focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10";
 
 const labelClass = "mb-1.5 block text-sm font-medium text-foreground";
 
@@ -30,7 +30,10 @@ export function ContactForm() {
     <Section variant="light-gray">
       <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <h1 className="font-heading text-4xl font-normal tracking-tighter lg:text-5xl">
+          <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
+            Contacto
+          </p>
+          <h1 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
             Hablemos de tu negocio
           </h1>
           <p className="text-muted-foreground mt-3 text-base">
@@ -39,7 +42,7 @@ export function ContactForm() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-[#dde2e5] bg-white p-8 shadow-sm md:p-12">
+        <div className="rounded-2xl bg-white p-8 shadow-[0_2px_24px_rgba(0,0,0,0.06)] md:p-12">
           {submitted ? (
             <div className="flex flex-col items-center gap-4 py-16 text-center">
               <CheckCircleIcon className="text-primary size-12" />

@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  LinkedinLogoIcon,
-  EnvelopeSimpleIcon,
-  QuotesIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { EnvelopeSimpleIcon } from "@phosphor-icons/react/dist/ssr";
 import { Navbar } from "@/components/organisms/Navbar";
 import { Footer } from "@/components/organisms/Footer";
 import { Section } from "@/components/atoms/Section";
@@ -13,35 +9,8 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Empresa — CM Digital",
   description:
-    "Conoce la historia de CM Digital, empresa regiomontana fundada con el propósito de transformar la gestión documental de las PYMES en México.",
+    "CM Digital es una empresa regiomontana fundada el 3 de octubre de 2003, dedicada a transformar la gestión documental de las PYMES en México como distribuidor oficial Ricoh.",
 };
-
-const hitos = [
-  {
-    year: "1999",
-    title: "El inicio",
-    description:
-      "Carlos Montemayor y Miguel Garza fundan CM Digital desde una pequeña oficina en Monterrey Centro, con una fotocopiadora rentada y una visión clara.",
-  },
-  {
-    year: "2004",
-    title: "Distribuidor oficial Ricoh",
-    description:
-      "Tras cinco años de crecimiento sostenido, CM Digital se convierte en distribuidor oficial de Ricoh para el noreste de México.",
-  },
-  {
-    year: "2009",
-    title: "Reconocimiento nacional",
-    description:
-      "Ricoh reconoce a CM Digital entre sus Top 10 distribuidores de mayor rendimiento en toda Latinoamérica.",
-  },
-  {
-    year: "Hoy",
-    title: "Más de 9,000 equipos instalados",
-    description:
-      "Con 25 años de trayectoria, presencia en todo México y un equipo de más de 80 personas, seguimos creciendo.",
-  },
-];
 
 const valores = [
   {
@@ -74,15 +43,16 @@ export default function EmpresaPage() {
                 Nuestra empresa
               </p>
               <h1 className="font-heading text-5xl font-normal tracking-tighter lg:text-6xl">
-                Dos emprendedores,
+                Tres emprendedores,
                 <br />
                 una ciudad, un propósito.
               </h1>
               <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
-                CM Digital nació en Monterrey con la convicción de que la
-                tecnología de impresión y gestión documental no debía ser
-                exclusiva de las grandes corporaciones. Hoy somos el aliado de
-                cientos de empresas en todo México.
+                CM Digital nació en Monterrey el 3 de octubre de 2003 con la
+                convicción de que la tecnología de impresión y gestión
+                documental no debía ser exclusiva de las grandes corporaciones.
+                Hoy seguimos siendo el aliado operativo de las PYMES del noreste
+                de México.
               </p>
             </div>
           </Container>
@@ -98,56 +68,53 @@ export default function EmpresaPage() {
                   Cómo comenzó todo
                 </h2>
                 <p className="text-muted-foreground">
-                  Corría 1999 cuando Carlos Montemayor y Miguel Garza, dos
-                  ingenieros egresados del Tecnológico de Monterrey, se
-                  encontraron en una exposición tecnológica en el centro de la
-                  ciudad. Ambos habían trabajado en grandes corporativos y
-                  compartían la misma frustración: las pequeñas y medianas
-                  empresas regiomontanas no tenían acceso a soluciones
-                  profesionales de impresión. Lo que existía era caro,
-                  complicado y diseñado para otro tipo de cliente.
+                  El 3 de octubre de 2003, tres emprendedores regiomontanos —dos
+                  mujeres y un hombre— decidieron apostar por un negocio propio.
+                  Arrancaron con pocas impresoras, pero con mucha hambre de
+                  crecer, desde un pequeño local en Ruperto Martínez, en el
+                  corazón del centro de Monterrey.
                 </p>
                 <p className="text-muted-foreground">
-                  Con ahorros propios, una oficina pequeña en Monterrey Centro y
-                  una fotocopiadora rentada, decidieron apostar. No solo por un
-                  negocio rentable, sino por algo más grande: demostrar que
-                  desde el norte de México se podían construir empresas de clase
-                  mundial. Desde el primer día, cada equipo que instalaban venía
-                  acompañado de algo que ningún corporativo podía dar: atención
-                  personalizada y un compromiso real con el cliente.
+                  Lo que les sobraba era convicción: demostrar que desde el
+                  norte de México se podían construir empresas de clase mundial,
+                  y hacerlo ofreciendo a las PYMES regiomontanas algo que ningún
+                  corporativo podía dar — atención personalizada, cercana y con
+                  un compromiso real por cada cliente.
                 </p>
                 <p className="text-muted-foreground">
                   El boca en boca hizo lo demás. Año tras año sumaron clientes,
-                  sumaron personas al equipo y sumaron responsabilidades. Para
-                  Carlos y Miguel, generar empleo de calidad en su ciudad
-                  siempre fue parte del objetivo, no una consecuencia.
+                  sumaron personas al equipo y sumaron responsabilidades. Más de
+                  dos décadas después, CM Digital sigue operando desde Monterrey
+                  con la misma filosofía con la que arrancó.
                 </p>
               </div>
 
-              {/* Quote + founding stats */}
+              {/* Founding card + facts */}
               <div className="flex flex-col gap-6">
-                <div className="rounded-2xl border border-[#dde2e5] bg-[#fbfbfb] p-8">
-                  <QuotesIcon className="text-primary mb-4 size-8" />
-                  <blockquote className="font-heading text-xl leading-snug font-normal tracking-tight">
-                    &ldquo;No queríamos solo salir adelante. Queríamos que
-                    Monterrey supiera que aquí también se construyen empresas
-                    que duran.&rdquo;
-                  </blockquote>
-                  <p className="text-muted-foreground mt-4 text-sm">
-                    — Carlos Montemayor, co-fundador de CM Digital
+                <div className="bg-card-surface rounded-2xl p-8 shadow-sm">
+                  <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
+                    Fundación
+                  </p>
+                  <p className="font-heading text-3xl leading-tight font-normal tracking-tighter">
+                    3 de octubre de 2003
+                  </p>
+                  <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
+                    Un pequeño local en Ruperto Martínez, en el centro de
+                    Monterrey, fue el punto de partida. Pocas impresoras, mucha
+                    hambre de crecer.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-5">
                   {[
-                    { value: "1999", label: "Año de fundación" },
-                    { value: "80+", label: "Personas en el equipo" },
-                    { value: "9,000+", label: "Equipos instalados" },
-                    { value: "25 años", label: "En la industria" },
+                    { value: "2003", label: "Año de fundación" },
+                    { value: "22 años", label: "De trayectoria" },
+                    { value: "Monterrey", label: "Nuestra casa" },
+                    { value: "Ricoh", label: "Distribuidor oficial" },
                   ].map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-[0.38rem] border border-[#dde2e5] bg-white p-5"
+                      className="rounded-lg bg-white p-5 shadow-sm"
                     >
                       <p className="font-heading text-3xl font-normal tracking-tighter">
                         {stat.value}
@@ -170,7 +137,7 @@ export default function EmpresaPage() {
               Lo que nos mueve
             </h2>
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl border border-[#dde2e5] bg-white p-8">
+              <div className="rounded-2xl bg-white p-8 shadow-sm">
                 <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
                   Misión
                 </p>
@@ -180,7 +147,7 @@ export default function EmpresaPage() {
                   mundial.
                 </p>
               </div>
-              <div className="rounded-2xl border border-[#dde2e5] bg-white p-8">
+              <div className="rounded-2xl bg-white p-8 shadow-sm">
                 <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
                   Visión
                 </p>
@@ -194,32 +161,8 @@ export default function EmpresaPage() {
           </Container>
         </Section>
 
-        {/* ── Hitos ─────────────────────────────────────────────────────────── */}
-        <Section variant="white">
-          <Container>
-            <h2 className="font-heading mb-12 text-3xl font-normal tracking-tighter">
-              25 años de historia
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {hitos.map((hito) => (
-                <div key={hito.year} className="flex flex-col gap-3">
-                  <p className="font-heading text-primary text-4xl font-normal tracking-tighter">
-                    {hito.year}
-                  </p>
-                  <p className="font-heading text-base font-medium">
-                    {hito.title}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {hito.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Section>
-
         {/* ── Valores ───────────────────────────────────────────────────────── */}
-        <Section variant="light-gray">
+        <Section variant="white">
           <Container>
             <h2 className="font-heading mb-12 text-3xl font-normal tracking-tighter">
               Lo que nos define
@@ -241,7 +184,7 @@ export default function EmpresaPage() {
         </Section>
 
         {/* ── Únete ─────────────────────────────────────────────────────────── */}
-        <Section variant="white">
+        <Section variant="light-gray">
           <Container>
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-24">
               <div className="max-w-lg">
@@ -260,10 +203,10 @@ export default function EmpresaPage() {
 
               <div className="flex flex-col gap-4">
                 <a
-                  href="mailto:talento@cmdigital.mx"
-                  className="hover:border-primary/40 flex items-center gap-3 rounded-[0.38rem] border border-[#dde2e5] px-6 py-4 transition-colors hover:bg-[#fbfbfb]"
+                  href="mailto:admcm@cmmonterrey.com"
+                  className="flex items-center gap-3 rounded-lg bg-white px-6 py-4 shadow-sm transition-shadow hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.38rem] border border-[#dde2e5]">
+                  <div className="bg-card-surface flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
                     <EnvelopeSimpleIcon className="text-primary size-5" />
                   </div>
                   <div>
@@ -271,26 +214,7 @@ export default function EmpresaPage() {
                       Manda tu CV
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      talento@cmdigital.mx
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://linkedin.com/company/cmdigital"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:border-primary/40 flex items-center gap-3 rounded-[0.38rem] border border-[#dde2e5] px-6 py-4 transition-colors hover:bg-[#fbfbfb]"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.38rem] border border-[#dde2e5]">
-                    <LinkedinLogoIcon className="text-primary size-5" />
-                  </div>
-                  <div>
-                    <p className="text-foreground text-xs font-medium">
-                      Síguenos en LinkedIn
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      CM Digital · Monterrey
+                      admcm@cmmonterrey.com
                     </p>
                   </div>
                 </a>

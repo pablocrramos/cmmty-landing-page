@@ -15,31 +15,39 @@ const partnerLogos = [
 ];
 
 const cardClass =
-  "relative flex flex-col justify-between overflow-hidden rounded-2xl p-7 bg-white border border-[#dde2e5] transition-[border-color,box-shadow] duration-300 hover:border-[rgba(192,24,38,0.35)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]";
+  "relative flex flex-col justify-between overflow-hidden rounded-2xl p-7 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md";
 
 export function FactsBento() {
   return (
     <Section variant="light-gray">
       <Container className="pt-4!">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {/* ── Card 1: 25 años ── */}
+        <div className="mb-8 max-w-2xl">
+          <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
+            CM Digital
+          </p>
+          <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
+            Lo que nos respalda
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* ── Card 1: Desde 2003 ── */}
           <div className={cn(cardClass, "min-h-56 lg:min-h-64")}>
-            {/* Decorative large "25" */}
+            {/* Decorative large "2003" */}
             <span
               aria-hidden
-              className="font-heading pointer-events-none absolute -right-4 -bottom-6 text-[10rem] leading-none font-bold tracking-tighter text-[#f5f0f0] lg:text-[12rem]"
+              className="font-heading pointer-events-none absolute -right-4 -bottom-6 text-[8rem] leading-none font-bold tracking-tighter text-[#f5f0f0] lg:text-[10rem]"
             >
-              25
+              2003
             </span>
             <span className="font-heading text-primary text-4xl leading-none font-medium lg:text-5xl">
-              25 años
+              Desde 2003
             </span>
             <p className="text-muted-foreground relative z-10 text-sm">
-              Creciendo en la industria de impresión.
+              Más de dos décadas creciendo junto a las PYMES de Monterrey.
             </p>
           </div>
 
-          {/* ── Card 2: 9,000+ equipos ── */}
+          {/* ── Card 2: Enfocados en PYMES ── */}
           <div className={cn(cardClass, "min-h-56 lg:min-h-64")}>
             {/* Decorative printer images */}
             <div className="pointer-events-none absolute right-4 bottom-12 flex items-end gap-2 opacity-[0.12]">
@@ -59,14 +67,15 @@ export function FactsBento() {
               />
             </div>
             <span className="font-heading text-4xl leading-none font-medium lg:text-5xl">
-              9,000+
+              PYMES
             </span>
             <p className="text-muted-foreground relative z-10 text-sm">
-              Equipos instalados en todo México.
+              Soluciones de impresión pensadas para pequeñas y medianas
+              empresas.
             </p>
           </div>
 
-          {/* ── Card 3: Top 10 Ricoh ── */}
+          {/* ── Card 3: Distribuidor oficial Ricoh ── */}
           <div
             className={cn(
               cardClass,
@@ -84,10 +93,10 @@ export function FactsBento() {
               />
             </div>
             <span className="font-heading text-4xl leading-none font-medium lg:text-5xl">
-              Top 10
+              Oficial
             </span>
             <p className="text-muted-foreground relative z-10 text-sm">
-              Mayor rendimiento por Ricoh en 2009.
+              Distribuidor oficial Ricoh en Monterrey.
             </p>
           </div>
 
@@ -102,7 +111,7 @@ export function FactsBento() {
                 {[...partnerLogos, ...partnerLogos].map((logo, i) => (
                   <div
                     key={`${logo.alt}-${i}`}
-                    className="flex shrink-0 items-center justify-center rounded-lg border border-[#dde2e5] bg-[#fbfbfb] px-5 py-3"
+                    className="bg-card-surface flex shrink-0 items-center justify-center rounded-lg px-5 py-3"
                   >
                     <Image
                       src={logo.src}

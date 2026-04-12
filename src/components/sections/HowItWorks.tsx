@@ -36,7 +36,10 @@ export function HowItWorks() {
       <Container>
         {/* Centered heading */}
         <div className="mx-auto max-w-lg text-center">
-          <h2 className="font-heading text-2xl font-medium tracking-tight sm:text-3xl lg:text-4xl">
+          <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
+            Proceso
+          </p>
+          <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
             Así de fácil es empezar
           </h2>
           <p className="text-muted-foreground mt-3 text-base">
@@ -45,7 +48,7 @@ export function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="mt-12 grid gap-8 sm:grid-cols-3 lg:mt-14">
+        <div className="mt-12 grid gap-10 sm:grid-cols-3 lg:mt-14">
           {steps.map((step) => (
             <div key={step.number} className="flex flex-col gap-4">
               {/* Number + icon */}
@@ -53,7 +56,7 @@ export function HowItWorks() {
                 <span className="text-primary text-xs font-semibold tracking-widest">
                   {step.number}
                 </span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#dde2e5]">
+                <div className="bg-card-surface flex h-10 w-10 items-center justify-center rounded-lg shadow-sm">
                   <step.icon className="text-primary size-5" />
                 </div>
               </div>

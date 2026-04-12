@@ -7,7 +7,7 @@
 @theme inline {
   /* Fonts */
   --font-sans: var(--font-ibm);
-  --font-heading: var(--font-ibm);
+  --font-heading: var(--font-inter);
 
   /* Font sizes — design system scale */
   --font-size-h1: 3.75rem;
@@ -45,6 +45,7 @@
   --color-accent-green: var(--accent-green);
   --color-accent-blue: var(--accent-blue);
   --color-destructive: var(--destructive);
+  --color-card-surface: var(--card-surface);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -86,7 +87,7 @@
   /* Brand colors — CM Digital */
   --primary: #c01826;
   --primary-foreground: #ffffff;
-  --primary-dark: #801e20;
+  --primary-dark: #7a1f22;
   --primary-muted: #8b6b6d;
 
   /* Accent colors */
@@ -95,7 +96,7 @@
 
   /* Neutrals */
   --foreground: #141414;
-  --muted-foreground: #7a7a7c;
+  --muted-foreground: #78756f;
 
   /* Surfaces */
   --background: #ffffff;
@@ -105,28 +106,29 @@
   --popover-foreground: #141414;
 
   /* Secondary — soft pink for tertiary button */
-  --secondary: #f2d8da;
+  --secondary: #f5e0dc;
   --secondary-foreground: #801e20;
 
-  /* Muted — light gray */
-  --muted: #dde2e5;
+  /* Muted — warm gray */
+  --muted: #e0dbd6;
 
   /* Accent — reuse green as default accent */
-  --accent: #eeeded;
+  --accent: #edeae6;
   --accent-foreground: #141414;
 
   --destructive: #c01826;
 
   /* Borders & inputs */
-  --border: #dde2e5;
-  --input: #dde2e5;
+  --border: #e0dbd6;
+  --input: #e0dbd6;
   --ring: #c01826;
 
   /* Border radius base — 8.4px */
   --radius: 0.525rem;
 
   /* Section surface — light-gray variant */
-  --surface: #fbfbfb;
+  --surface: #f8f6f3;
+  --card-surface: #f5f2ee;
 
   /* Chart colors */
   --chart-1: #c01826;
@@ -136,13 +138,13 @@
   --chart-5: #801e20;
 
   /* Sidebar */
-  --sidebar: #fafafa;
+  --sidebar: #f8f6f3;
   --sidebar-foreground: #141414;
   --sidebar-primary: #c01826;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f5f5f5;
+  --sidebar-accent: #f5f2ee;
   --sidebar-accent-foreground: #141414;
-  --sidebar-border: #dde2e5;
+  --sidebar-border: #e0dbd6;
   --sidebar-ring: #c01826;
 }
 
@@ -171,6 +173,12 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(60, 50, 40, 0.05) 1px,
+      transparent 0
+    );
+    background-size: 24px 24px;
     font-size: var(--font-size-body);
     line-height: var(--font-size-body--line-height);
   }
