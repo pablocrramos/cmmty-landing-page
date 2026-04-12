@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Link } from "lucide-react";
 
 const clientLogos = [
   { key: "magna", src: "/assets/svgs/logos/clients/magna.svg", alt: "Magna" },
