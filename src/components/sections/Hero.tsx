@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Link } from "lucide-react";
 
 const clientLogos = [
   { key: "magna", src: "/assets/svgs/logos/clients/magna.svg", alt: "Magna" },
@@ -21,7 +22,13 @@ const printerShadow = "drop-shadow-[0_8px_10px_rgba(0,0,0,0.12)]";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-28 pb-10 lg:pt-32 lg:pb-12">
+    <section className="relative overflow-hidden pt-28 pb-10 lg:pt-40 lg:pb-12">
+      {/* ── Subtle red gradient glow at top ── */}
+      <div
+        aria-hidden
+        className="from-primary/25 via-primary/10 pointer-events-none absolute inset-x-0 top-0 h-[20%] bg-linear-to-b to-transparent"
+      />
+
       {/* ── Mobile: printer cluster ── */}
       <div className="relative mx-auto mb-8 flex h-[160px] items-end justify-center lg:hidden">
         <div className="animate-float relative -mr-4 mb-1 w-[95px] [animation-delay:0.4s]">
@@ -54,7 +61,7 @@ export function Hero() {
       </div>
 
       {/* ── Desktop: printers as small decorations flanking text ── */}
-      <div className="relative mx-auto max-w-[100rem]">
+      <div className="relative mx-auto max-w-[100rem] pb-10">
         {/* Far-left */}
         <div className="pointer-events-none absolute top-[10%] left-[3%] hidden lg:block xl:left-[6%]">
           <div className="animate-float-slow w-[100px] -rotate-6 xl:w-[120px]">
@@ -109,21 +116,27 @@ export function Hero() {
 
         {/* Center copy */}
         <div className="relative z-10 mx-auto max-w-xl px-4 py-6 text-center lg:py-10">
-          <h1 className="text-foreground text-[1.75rem] leading-[1.15] font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
-            Tu operación de impresión.
+          <a
+            href="https://www.facebook.com/people/CM-Digital/100063816105348/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 mx-auto mb-5 flex w-fit items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors"
+          >
+            Nuevas impresoras a gran precio &rarr;
+          </a>
+          <h1 className="text-foreground text-[1.75rem] leading-[1.15] font-medium tracking-tight sm:text-4xl lg:text-[2.75rem]">
+            Tu operación de impresión
             <br />
-            Resuelta por completo.
+            resuelta por completo
           </h1>
-          <p className="text-muted-foreground mt-5 text-base leading-relaxed font-medium sm:text-lg">
-            Servicios gestionados de impresión, digitalización y soporte que se
-            adaptan a lo que necesitas.
+          <p className="text-muted-foreground mt-6 text-base leading-[1.15] font-stretch-normal sm:text-lg">
+            Servicios gestionados de impresión, digitalización <br /> y soporte
+            que se adaptan a lo que necesitas.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Button render={<a href="#servicios" />}>
-              Conoce nuestros servicios &rarr;
-            </Button>
-            <Button variant="alternate" render={<a href="/contacto" />}>
-              Cotiza con nosotros
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <Button render={<Link href="/#servicios" />}>Servicios</Button>
+            <Button variant="alternate" render={<Link href="/contacto" />}>
+              Contacto
             </Button>
           </div>
         </div>
@@ -142,7 +155,7 @@ export function Hero() {
                 alt={logo.alt}
                 fill
                 sizes="80px"
-                className="object-contain"
+                className="object-contain opacity-45"
               />
             </div>
           ))}

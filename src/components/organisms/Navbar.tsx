@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#servicios", label: "Servicios" },
+  { href: "/#servicios", label: "Servicios" },
   { href: "/empresa", label: "Empresa" },
 ];
 
@@ -46,7 +46,7 @@ export function Navbar() {
             </Link>
             <ul className="flex items-center gap-6">
               {navLinks.map((link) => (
-                <li key={link.href}>
+                <li className="flex items-center" key={link.href}>
                   <a
                     href={link.href}
                     className="font-heading text-muted-foreground hover:text-foreground text-[0.9rem] font-normal tracking-tight transition-colors"

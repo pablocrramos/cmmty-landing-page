@@ -52,7 +52,7 @@ export function ContactInfo() {
   return (
     <Section variant="white">
       <div className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mb-10">
+        <div className="mb-10 pt-16">
           <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
             Contacto directo
           </p>

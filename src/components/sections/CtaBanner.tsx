@@ -11,13 +11,13 @@ const cards = [
     title: "Soluciones a tu medida",
     description:
       "Impresión gestionada, digitalización y renta de equipos Ricoh para tu operación.",
-    link: { label: "Ver servicios", href: "#servicios" },
+    link: { label: "Ver servicios", href: "/#servicios" },
   },
   {
     icon: BuildingsIcon,
-    title: "25 años respaldándonos",
+    title: "Desde 2003 en Monterrey",
     description:
-      "Conoce nuestra historia, aliados tecnológicos y por qué más de 9,000 equipos confían en nosotros.",
+      "Conoce nuestra historia como distribuidor oficial Ricoh y los aliados tecnológicos que nos respaldan.",
     link: { label: "Conoce la empresa", href: "/empresa" },
   },
 ];
@@ -29,22 +29,19 @@ export function CtaBanner() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left — heading + CTAs */}
           <div className="max-w-lg">
-            <h2 className="font-heading text-3xl leading-snug font-medium tracking-tight text-white lg:text-4xl">
+            <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
+              Empecemos
+            </p>
+            <h2 className="font-heading text-3xl font-normal tracking-tighter text-white lg:text-4xl">
               ¿Listo para optimizar tu operación?
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/60">
+            <p className="mt-3 text-base leading-relaxed text-white/60">
               Ponte en contacto con nosotros para diseñar una solución a la
               medida de tu empresa. Sin compromisos.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button render={<a href="/contacto" />}>
-                Cotiza ahora <ArrowRightIcon className="size-4" />
-              </Button>
-              <Button
-                variant="alternate"
-                render={<a href="/empresa" />}
-                className="border-white/20 text-white hover:border-white/40 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4)]"
-              >
+              <Button render={<a href="/contacto" />}>Cotiza ahora</Button>
+              <Button variant="outline-light" render={<a href="/empresa" />}>
                 Conoce nuestra empresa
               </Button>
             </div>
@@ -66,7 +63,7 @@ export function CtaBanner() {
                   </p>
                   <a
                     href={link.href}
-                    className="text-primary mt-2 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-red-400"
+                    className="text-primary hover:text-primary-dark mt-2 inline-flex items-center gap-1 text-sm font-medium transition-colors"
                   >
                     {link.label}{" "}
                     <ArrowRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5" />

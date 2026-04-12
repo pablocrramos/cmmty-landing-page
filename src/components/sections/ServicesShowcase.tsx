@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowRightIcon, CheckCircleIcon } from "@phosphor-icons/react";
-import { Button } from "@/components/ui/button";
+import { CheckCircleIcon } from "@phosphor-icons/react";
 import { Section } from "@/components/atoms/Section";
 import { Container } from "../atoms/Container";
 import { services } from "@/lib/services-data";
@@ -35,12 +34,8 @@ export function ServicesShowcase() {
             Servicios
           </p>
           <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
-            Tres soluciones para tu operación
+            Soluciones digitales y resultados reales
           </h2>
-          <p className="text-muted-foreground mt-3 text-base">
-            Elige el servicio que necesitas y conoce exactamente cómo
-            trabajamos.
-          </p>
         </div>
 
         {/* ── Tab navigation ──────────────────────────────────────────────── */}
@@ -60,7 +55,7 @@ export function ServicesShowcase() {
                 aria-controls={`service-panel-${service.id}`}
                 onClick={() => setActiveIndex(i)}
                 className={cn(
-                  "rounded-full border px-5 py-2 text-sm font-medium transition-all duration-200",
+                  "rounded-xl border px-5 py-2 text-sm font-medium transition-all duration-200",
                   isActive
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "hover:border-primary/40 hover:text-foreground border-border text-muted-foreground bg-white",
@@ -129,7 +124,7 @@ export function ServicesShowcase() {
                 </ul>
               </div>
 
-              {/* CTA */}
+              {/* CTA — commented out for future use
               <Button
                 size="sm"
                 className="self-start"
@@ -137,6 +132,7 @@ export function ServicesShowcase() {
               >
                 {active.ctaLabel} <ArrowRightIcon className="size-3.5" />
               </Button>
+              */}
             </div>
           </div>
         </div>

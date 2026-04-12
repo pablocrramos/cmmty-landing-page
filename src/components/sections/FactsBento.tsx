@@ -22,16 +22,13 @@ export function FactsBento() {
     <Section variant="light-gray">
       <Container className="pt-4!">
         <div className="mb-8 max-w-2xl">
-          <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
-            CM Digital
-          </p>
-          <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
+          <h2 className="font-heading mt-16 text-3xl font-normal tracking-tighter lg:text-4xl">
             Lo que nos respalda
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {/* ── Card 1: Desde 2003 ── */}
-          <div className={cn(cardClass, "min-h-56 lg:min-h-64")}>
+          <div className={cn(cardClass, "min-h-72 lg:min-h-80")}>
             {/* Decorative large "2003" */}
             <span
               aria-hidden
@@ -48,7 +45,7 @@ export function FactsBento() {
           </div>
 
           {/* ── Card 2: Enfocados en PYMES ── */}
-          <div className={cn(cardClass, "min-h-56 lg:min-h-64")}>
+          <div className={cn(cardClass, "min-h-72 lg:min-h-80")}>
             {/* Decorative printer images */}
             <div className="pointer-events-none absolute right-4 bottom-12 flex items-end gap-2 opacity-[0.12]">
               <Image
@@ -75,33 +72,8 @@ export function FactsBento() {
             </p>
           </div>
 
-          {/* ── Card 3: Distribuidor oficial Ricoh ── */}
-          <div
-            className={cn(
-              cardClass,
-              "min-h-56 sm:col-span-2 lg:col-span-1 lg:min-h-64",
-            )}
-          >
-            {/* Ricoh logo watermark */}
-            <div className="pointer-events-none absolute right-5 bottom-14 opacity-[0.08]">
-              <Image
-                src="/assets/svgs/logos/aliados/ricoh.svg"
-                alt=""
-                width={120}
-                height={48}
-                className="h-12 w-auto"
-              />
-            </div>
-            <span className="font-heading text-4xl leading-none font-medium lg:text-5xl">
-              Oficial
-            </span>
-            <p className="text-muted-foreground relative z-10 text-sm">
-              Distribuidor oficial Ricoh en Monterrey.
-            </p>
-          </div>
-
-          {/* ── Card 4: Aliados — logo marquee ── */}
-          <div className={cn(cardClass, "min-h-52 sm:col-span-2 lg:min-h-56")}>
+          {/* ── Card 3: Aliados — logo marquee ── */}
+          <div className={cn(cardClass, "min-h-72 lg:min-h-80")}>
             <p className="relative z-10 max-w-md text-base leading-snug font-medium">
               Contamos con los mejores aliados tecnológicos en la industria.
             </p>
@@ -126,13 +98,8 @@ export function FactsBento() {
             </div>
           </div>
 
-          {/* ── Card 5: Value prop ── */}
-          <div
-            className={cn(
-              cardClass,
-              "min-h-52 sm:col-span-2 lg:col-span-1 lg:min-h-56",
-            )}
-          >
+          {/* ── Card 4: Monterrey ── */}
+          <div className={cn(cardClass, "min-h-72 lg:min-h-80")}>
             {/* Decorative dot grid */}
             <div className="pointer-events-none absolute right-4 bottom-4 grid grid-cols-4 gap-2.5 opacity-[0.06]">
               {Array.from({ length: 16 }).map((_, i) => (
@@ -142,12 +109,12 @@ export function FactsBento() {
                 />
               ))}
             </div>
-            <p className="relative z-10 text-base leading-snug font-medium">
-              Simplificamos tus espacios, así tú solo te preocupas por lo
-              importante.
-            </p>
-            <p className="text-muted-foreground relative z-10 mt-auto pt-6 text-sm">
-              Soluciones integrales de impresión y digitalización para PYMEs.
+            <span className="font-heading text-4xl leading-none font-medium lg:text-5xl">
+              Monterrey
+            </span>
+            <p className="text-muted-foreground relative z-10 text-sm">
+              Orgullosamente regiomontanos, operando desde el centro de la
+              ciudad.
             </p>
           </div>
         </div>

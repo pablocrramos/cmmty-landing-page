@@ -34,18 +34,13 @@ export default function EmpresaPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-16">
+      <main className="">
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <Section variant="light-gray">
           <Container>
             <div className="max-w-2xl">
-              <p className="text-primary mb-4 text-sm font-medium tracking-widest uppercase">
-                Nuestra empresa
-              </p>
               <h1 className="font-heading text-5xl font-normal tracking-tighter lg:text-6xl">
-                Tres emprendedores,
-                <br />
-                una ciudad, un propósito.
+                CM Digital una historia con propósito.
               </h1>
               <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
                 CM Digital nació en Monterrey el 3 de octubre de 2003 con la
@@ -68,8 +63,8 @@ export default function EmpresaPage() {
                   Cómo comenzó todo
                 </h2>
                 <p className="text-muted-foreground">
-                  El 3 de octubre de 2003, tres emprendedores regiomontanos —dos
-                  mujeres y un hombre— decidieron apostar por un negocio propio.
+                  El 3 de octubre de 2003, dos emprendedores regiomontanos
+                  hombre y mujer decidieron apostar por un negocio propio.
                   Arrancaron con pocas impresoras, pero con mucha hambre de
                   crecer, desde un pequeño local en Ruperto Martínez, en el
                   corazón del centro de Monterrey.

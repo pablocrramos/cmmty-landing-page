@@ -37,14 +37,11 @@ export function HowItWorks() {
         {/* Centered heading */}
         <div className="mx-auto max-w-lg text-center">
           <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
-            Proceso
+            Tres simples pasos
           </p>
           <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
             Así de fácil es empezar
           </h2>
-          <p className="text-muted-foreground mt-3 text-base">
-            Tres pasos para optimizar tu operación de impresión.
-          </p>
         </div>
 
         {/* Steps */}
@@ -53,9 +50,6 @@ export function HowItWorks() {
             <div key={step.number} className="flex flex-col gap-4">
               {/* Number + icon */}
               <div className="flex items-center gap-3">
-                <span className="text-primary text-xs font-semibold tracking-widest">
-                  {step.number}
-                </span>
                 <div className="bg-card-surface flex h-10 w-10 items-center justify-center rounded-lg shadow-sm">
                   <step.icon className="text-primary size-5" />
                 </div>

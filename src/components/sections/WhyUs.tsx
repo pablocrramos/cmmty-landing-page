@@ -1,11 +1,19 @@
 import Image from "next/image";
-import { SectionHeading } from "@/components/atoms/SectionHeading";
 import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: "25 años", description: "Creciendo en la industria de impresión." },
-  { value: "9,000+", description: "Equipos instalados en todo México." },
-  { value: "Top 10", description: "Mayor rendimiento por Ricoh en 2009." },
+  {
+    value: "Desde 2003",
+    description: "Dos décadas creciendo junto a las PYMES del noreste.",
+  },
+  {
+    value: "Monterrey",
+    description: "Operamos desde el corazón del centro de la ciudad.",
+  },
+  {
+    value: "Ricoh",
+    description: "Distribuidor oficial Ricoh en Monterrey.",
+  },
 ];
 
 const partnerLogos = [
@@ -22,10 +30,18 @@ export function WhyUs() {
       className="bg-neutral-100 px-4 py-20 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          title="¿Por qué elegirnos?"
-          subtitle="Combinamos tecnología Ricoh con un servicio cercano y personalizado para PYMES."
-        />
+        <div className="mb-12">
+          <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
+            CM Digital
+          </p>
+          <h2 className="font-heading text-3xl font-normal tracking-tighter lg:text-4xl">
+            ¿Por qué elegirnos?
+          </h2>
+          <p className="text-muted-foreground mt-3 text-base">
+            Combinamos tecnología Ricoh con un servicio cercano y personalizado
+            para PYMES.
+          </p>
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* Row 1 — stat cards */}

@@ -43,7 +43,7 @@ export function SocialProof() {
               alt={logo.alt}
               fill
               sizes="100px"
-              className="object-contain px-10 py-3.5"
+              className="object-contain px-10 py-3.5 opacity-0"
             />
           </div>
         ))}

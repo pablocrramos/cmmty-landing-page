@@ -28,7 +28,7 @@ export function ContactForm() {
 
   return (
     <Section variant="light-gray">
-      <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 py-20 pt-24 sm:px-6 lg:px-8">
         <div className="mb-10">
           <p className="text-primary mb-3 text-xs font-medium tracking-widest uppercase">
             Contacto
